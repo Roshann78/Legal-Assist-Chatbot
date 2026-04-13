@@ -7,3 +7,5 @@ python-dotenv
 notebook
 ipykernel
 langchain-groq
+fastapi
+uvicorn

@@ -1,6 +1,6 @@
 <div align="center">
   <div style="background-color: #0f172a; padding: 20px; border-radius: 15px; display: inline-block;">
-    <h1 style="color: white; margin: 0;">⚖️ LexAI: Legal Assist Chatbot</h1>
+    <h1 style="color: white; margin: 0;">⚖️ Legal Buddy: Legal Assist Chatbot</h1>
   </div>
   <br/><br/>
   <p><i>A full-stack, AI-powered Legal Research Assistant leveraging Retrieval-Augmented Generation over Landmark Indian Supreme Court Judgments.</i></p>
@@ -18,9 +18,9 @@
 
 ## 📖 Comprehensive Overview
 
-**LexAI** is a state-of-the-art Retrieval-Augmented Generation (RAG) ecosystem built to assist legal professionals, researchers, and citizens in understanding granular Indian legal contexts. 
+**Legal Buddy** is a state-of-the-art Retrieval-Augmented Generation (RAG) ecosystem built to assist legal professionals, researchers, and citizens in understanding granular Indian legal contexts. 
 
-Recently upgraded into a complete **full-stack web application**, LexAI features a blazing-fast Python **FastAPI backend** handling document retrieval and LLM reasoning, seamlessly connected to a modern, responsive **Next.js & Tailwind CSS frontend** that provides a premium, professional user experience mimicking top-tier legal firm aesthetics.
+Recently upgraded into a complete **full-stack web application**, Legal Buddy features a blazing-fast Python **FastAPI backend** handling document retrieval and LLM reasoning, seamlessly connected to a modern, responsive **Next.js & Tailwind CSS frontend** that provides a premium, professional user experience mimicking top-tier legal firm aesthetics.
 
 The agent grounds its knowledge directly in a curated vector database of monumental Indian Constitutional Law cases, effectively minimizing model hallucinations.
 
@@ -61,7 +61,7 @@ The agent grounds its knowledge directly in a curated vector database of monumen
 ## 📂 Architecture & Directory Structure
 
 ```text
-LexAI (Legal Assist Chatbot)/
+Legal Buddy (Legal Assist Chatbot)/
 ├── frontend/                  # Next.js React Web UI
 │   ├── app/                   # Next.js App Router (page.tsx, layout.tsx)
 │   ├── next.config.ts         # Next.js configuration (Dev Origins allowed)
@@ -91,7 +91,7 @@ The current system relies on the following Indian Supreme Court decisions:
 
 ## 🚀 Setup & Installation Guide
 
-Setting up LexAI locally requires starting both the Backend Python Server and the Frontend Node.js Server.
+Setting up Legal Buddy locally requires starting both the Backend Python Server and the Frontend Node.js Server.
 
 ### Phase 1: Global Setup & Backend
 1. **Clone the repository:**
@@ -156,7 +156,7 @@ Open a **new terminal window**, ensuring you are in the project root:
 ---
 
 ## ⚠️ Disclaimer
-*LexAI is an experimental AI tool designed solely for legal learning, development, and conceptual research. It should **not** be used as a substitute for certified, professional legal counsel. While the RAG architecture strictly grounds context, external AI models may occasionally interpret texts inaccurately.*
+*Legal Buddy is an experimental AI tool designed solely for legal learning, development, and conceptual research. It should **not** be used as a substitute for certified, professional legal counsel. While the RAG architecture strictly grounds context, external AI models may occasionally interpret texts inaccurately.*
 
 ---
 <p align="center"><b>Built with dedication to simplify legal research through AI.</b></p>

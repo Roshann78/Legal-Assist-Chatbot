@@ -76,7 +76,7 @@ const PlusIcon = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
-export default function LexAI() {
+export default function LegalBuddy() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -149,7 +149,7 @@ export default function LexAI() {
             <div className="w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
               <ScaleIcon className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-2xl font-bold text-white tracking-tight">LexAI</h1>
+            <h1 className="text-2xl font-bold text-white tracking-tight">Legal Buddy</h1>
           </div>
           <p className="text-sm text-slate-400 font-medium tracking-wide uppercase opacity-80">
             Your Indian Legal Assistant
@@ -195,7 +195,7 @@ export default function LexAI() {
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl border border-slate-100 mb-6 bg-gradient-to-br from-indigo-50 to-white">
                   <ScaleIcon className="w-10 h-10 text-indigo-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-800 mb-3">Welcome to LexAI</h2>
+                <h2 className="text-2xl font-bold text-slate-800 mb-3">Welcome to Legal Buddy</h2>
                 <p className="text-slate-500 max-w-lg mb-8 leading-relaxed">
                   I specialize in landmark Indian Supreme Court judgments. Ask me about fundamental rights, constitutional law, or specific case precedents.
                 </p>
@@ -261,7 +261,7 @@ export default function LexAI() {
                     <span className="w-2 h-2 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: "150ms" }}></span>
                     <span className="w-2 h-2 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: "300ms" }}></span>
                   </div>
-                  <span className="text-sm font-medium text-slate-500 ml-2">LexAI is reviewing documents...</span>
+                  <span className="text-sm font-medium text-slate-500 ml-2">Legal Buddy is reviewing documents...</span>
                 </div>
               </div>
             )}
@@ -307,7 +307,7 @@ export default function LexAI() {
               </div>
             </form>
             <p className="text-center text-xs text-slate-400 mt-3 font-medium">
-              LexAI may produce inaccurate information about laws, cases, or precedents. Double-check facts.
+              Legal Buddy may produce inaccurate information about laws, cases, or precedents. Double-check facts.
             </p>
           </div>
         </div>

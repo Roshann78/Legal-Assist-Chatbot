@@ -211,7 +211,7 @@ export default function LexAI() {
                       onClick={() => setInput(preset)}
                       className="px-4 py-3 bg-white border border-slate-200 rounded-xl hover:border-indigo-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-sm text-slate-600 font-medium"
                     >
-                      "{preset}"
+                      &quot;{preset}&quot;
                     </button>
                   ))}
                 </div>

@@ -18,6 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 print("Loading RAG chain...")
 chain = load_rag_chain()
 print("RAG chain loaded and ready!")

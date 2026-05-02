@@ -55,7 +55,7 @@
       "source_file": "frontend\\eslint.config.mjs",
       "source_location": "L1",
       "id": "frontend_eslint_config_mjs",
-      "community": 9,
+      "community": 11,
       "norm_label": "eslint.config.mjs"
     },
     {
@@ -64,7 +64,7 @@
       "source_file": "frontend\\next-env.d.ts",
       "source_location": "L1",
       "id": "frontend_next_env_d_ts",
-      "community": 10,
+      "community": 12,
       "norm_label": "next-env.d.ts"
     },
     {
@@ -73,7 +73,7 @@
       "source_file": "frontend\\next.config.ts",
       "source_location": "L1",
       "id": "frontend_next_config_ts",
-      "community": 11,
+      "community": 13,
       "norm_label": "next.config.ts"
     },
     {
@@ -82,7 +82,7 @@
       "source_file": "frontend\\postcss.config.mjs",
       "source_location": "L1",
       "id": "frontend_postcss_config_mjs",
-      "community": 12,
+      "community": 14,
       "norm_label": "postcss.config.mjs"
     },
     {
@@ -91,7 +91,7 @@
       "source_file": "frontend\\app\\layout.tsx",
       "source_location": "L1",
       "id": "frontend_app_layout_tsx",
-      "community": 5,
+      "community": 6,
       "norm_label": "layout.tsx"
     },
     {
@@ -100,7 +100,7 @@
       "source_file": "frontend\\app\\layout.tsx",
       "source_location": "L20",
       "id": "app_layout_rootlayout",
-      "community": 5,
+      "community": 6,
       "norm_label": "rootlayout()"
     },
     {
@@ -109,35 +109,134 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L1",
       "id": "frontend_app_page_tsx",
-      "community": 3,
+      "community": 1,
       "norm_label": "page.tsx"
     },
     {
-      "label": "ScaleIcon()",
+      "label": "scrollToTop()",
       "file_type": "code",
       "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L33",
+      "id": "app_page_scrolltotop",
+      "community": 1,
+      "norm_label": "scrolltotop()"
+    },
+    {
+      "label": "handleNavClick()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L35",
+      "id": "app_page_handlenavclick",
+      "community": 1,
+      "norm_label": "handlenavclick()"
+    },
+    {
+      "label": "handleSendMessage()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L48",
+      "id": "app_page_handlesendmessage",
+      "community": 1,
+      "norm_label": "handlesendmessage()"
+    },
+    {
+      "label": "handleCompare()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L92",
+      "id": "app_page_handlecompare",
+      "community": 1,
+      "norm_label": "handlecompare()"
+    },
+    {
+      "label": "handleFileUpload()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L117",
+      "id": "app_page_handlefileupload",
+      "community": 1,
+      "norm_label": "handlefileupload()"
+    },
+    {
+      "label": "getFeatureConfig()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L138",
+      "id": "app_page_getfeatureconfig",
+      "community": 1,
+      "norm_label": "getfeatureconfig()"
+    },
+    {
+      "label": "FeaturesSection.tsx",
+      "file_type": "code",
+      "source_file": "frontend\\components\\FeaturesSection.tsx",
+      "source_location": "L1",
+      "id": "frontend_components_featuressection_tsx",
+      "community": 7,
+      "norm_label": "featuressection.tsx"
+    },
+    {
+      "label": "FeatureCard()",
+      "file_type": "code",
+      "source_file": "frontend\\components\\FeaturesSection.tsx",
       "source_location": "L12",
-      "id": "app_page_scaleicon",
-      "community": 3,
-      "norm_label": "scaleicon()"
+      "id": "components_featuressection_featurecard",
+      "community": 7,
+      "norm_label": "featurecard()"
     },
     {
-      "label": "handleSend()",
+      "label": "Footer.tsx",
       "file_type": "code",
-      "source_file": "frontend\\app\\page.tsx",
-      "source_location": "L90",
-      "id": "app_page_handlesend",
-      "community": 3,
-      "norm_label": "handlesend()"
+      "source_file": "frontend\\components\\Footer.tsx",
+      "source_location": "L1",
+      "id": "frontend_components_footer_tsx",
+      "community": 15,
+      "norm_label": "footer.tsx"
     },
     {
-      "label": "handleNewChat()",
+      "label": "HeroSection.tsx",
       "file_type": "code",
-      "source_file": "frontend\\app\\page.tsx",
-      "source_location": "L137",
-      "id": "app_page_handlenewchat",
-      "community": 3,
-      "norm_label": "handlenewchat()"
+      "source_file": "frontend\\components\\HeroSection.tsx",
+      "source_location": "L1",
+      "id": "frontend_components_herosection_tsx",
+      "community": 16,
+      "norm_label": "herosection.tsx"
+    },
+    {
+      "label": "HowItWorks.tsx",
+      "file_type": "code",
+      "source_file": "frontend\\components\\HowItWorks.tsx",
+      "source_location": "L1",
+      "id": "frontend_components_howitworks_tsx",
+      "community": 5,
+      "norm_label": "howitworks.tsx"
+    },
+    {
+      "label": "Step()",
+      "file_type": "code",
+      "source_file": "frontend\\components\\HowItWorks.tsx",
+      "source_location": "L5",
+      "id": "components_howitworks_step",
+      "community": 5,
+      "norm_label": "step()"
+    },
+    {
+      "label": "HowItWorks()",
+      "file_type": "code",
+      "source_file": "frontend\\components\\HowItWorks.tsx",
+      "source_location": "L26",
+      "id": "components_howitworks_howitworks",
+      "community": 5,
+      "norm_label": "howitworks()"
+    },
+    {
+      "label": "Navbar.tsx",
+      "file_type": "code",
+      "source_file": "frontend\\components\\Navbar.tsx",
+      "source_location": "L1",
+      "id": "frontend_components_navbar_tsx",
+      "community": 17,
+      "norm_label": "navbar.tsx"
     },
     {
       "label": "app.py",
@@ -145,16 +244,16 @@
       "source_file": "src\\app.py",
       "source_location": "L1",
       "id": "src_app_py",
-      "community": 2,
+      "community": 3,
       "norm_label": "app.py"
     },
     {
       "label": "QuestionRequest",
       "file_type": "code",
       "source_file": "src\\app.py",
-      "source_location": "L26",
+      "source_location": "L35",
       "id": "src_app_questionrequest",
-      "community": 2,
+      "community": 3,
       "norm_label": "questionrequest"
     },
     {
@@ -163,44 +262,62 @@
       "source_file": "",
       "source_location": "",
       "id": "basemodel",
-      "community": 2,
+      "community": 3,
       "norm_label": "basemodel"
     },
     {
       "label": "AnswerResponse",
       "file_type": "code",
       "source_file": "src\\app.py",
-      "source_location": "L29",
+      "source_location": "L38",
       "id": "src_app_answerresponse",
-      "community": 2,
+      "community": 3,
       "norm_label": "answerresponse"
+    },
+    {
+      "label": "CompareResponse",
+      "file_type": "code",
+      "source_file": "src\\app.py",
+      "source_location": "L42",
+      "id": "src_app_compareresponse",
+      "community": 3,
+      "norm_label": "compareresponse"
     },
     {
       "label": "root()",
       "file_type": "code",
       "source_file": "src\\app.py",
-      "source_location": "L34",
+      "source_location": "L48",
       "id": "src_app_root",
-      "community": 2,
+      "community": 3,
       "norm_label": "root()"
     },
     {
       "label": "health()",
       "file_type": "code",
       "source_file": "src\\app.py",
-      "source_location": "L38",
+      "source_location": "L52",
       "id": "src_app_health",
-      "community": 2,
+      "community": 3,
       "norm_label": "health()"
     },
     {
       "label": "ask_question()",
       "file_type": "code",
       "source_file": "src\\app.py",
-      "source_location": "L42",
+      "source_location": "L56",
       "id": "src_app_ask_question",
-      "community": 2,
+      "community": 3,
       "norm_label": "ask_question()"
+    },
+    {
+      "label": "compare_answers()",
+      "file_type": "code",
+      "source_file": "src\\app.py",
+      "source_location": "L64",
+      "id": "src_app_compare_answers",
+      "community": 3,
+      "norm_label": "compare_answers()"
     },
     {
       "label": "ingest.py",
@@ -208,7 +325,7 @@
       "source_file": "src\\ingest.py",
       "source_location": "L1",
       "id": "src_ingest_py",
-      "community": 6,
+      "community": 8,
       "norm_label": "ingest.py"
     },
     {
@@ -217,7 +334,7 @@
       "source_file": "src\\ingest.py",
       "source_location": "L10",
       "id": "src_ingest_ingest_documents",
-      "community": 6,
+      "community": 8,
       "norm_label": "ingest_documents()"
     },
     {
@@ -226,7 +343,7 @@
       "source_file": "src\\rag_chain.py",
       "source_location": "L1",
       "id": "src_rag_chain_py",
-      "community": 7,
+      "community": 9,
       "norm_label": "rag_chain.py"
     },
     {
@@ -235,8 +352,35 @@
       "source_file": "src\\rag_chain.py",
       "source_location": "L12",
       "id": "src_rag_chain_load_rag_chain",
-      "community": 7,
+      "community": 9,
       "norm_label": "load_rag_chain()"
+    },
+    {
+      "label": "ScaleIcon()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L12",
+      "community": 1,
+      "norm_label": "scaleicon()",
+      "id": "app_page_scaleicon"
+    },
+    {
+      "label": "handleSend()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L90",
+      "community": 1,
+      "norm_label": "handlesend()",
+      "id": "app_page_handlesend"
+    },
+    {
+      "label": "handleNewChat()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L137",
+      "community": 1,
+      "norm_label": "handlenewchat()",
+      "id": "app_page_handlenewchat"
     },
     {
       "label": "Legal Buddy Project",
@@ -261,7 +405,7 @@
       "author": null,
       "contributor": null,
       "rationale": "RAG chosen to ground LLM responses in actual court documents, minimizing hallucinations for legal accuracy",
-      "community": 1,
+      "community": 2,
       "norm_label": "rag architecture",
       "id": "readme_rag_architecture"
     },
@@ -274,7 +418,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 13,
+      "community": 18,
       "norm_label": "fastapi server",
       "id": "app_fastapi_server"
     },
@@ -287,7 +431,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 4,
       "norm_label": "questionrequest",
       "id": "app_questionrequest"
     },
@@ -300,7 +444,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 4,
       "norm_label": "answerresponse",
       "id": "app_answerresponse"
     },
@@ -313,7 +457,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 4,
       "norm_label": "ask_question endpoint",
       "id": "app_ask_question"
     },
@@ -326,7 +470,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 2,
       "norm_label": "ingest_documents pipeline",
       "id": "ingest_ingest_documents"
     },
@@ -340,7 +484,7 @@
       "author": null,
       "contributor": null,
       "rationale": "chunk_size=1000 with overlap=200 balances context preservation with retrieval granularity for legal texts",
-      "community": 4,
+      "community": 2,
       "norm_label": "document chunking strategy",
       "id": "ingest_chunking_strategy"
     },
@@ -353,7 +497,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "load_rag_chain",
       "id": "rag_chain_load_rag_chain"
     },
@@ -367,7 +511,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Prompt instructs LLM to act as Indian law expert, explicitly refusing to answer if context insufficient - prevents hallucination",
-      "community": 1,
+      "community": 2,
       "norm_label": "legal expert prompt template",
       "id": "rag_chain_legal_prompt"
     },
@@ -380,7 +524,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "format_docs helper",
       "id": "rag_chain_format_docs"
     },
@@ -393,7 +537,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 2,
       "norm_label": "chromadb vectorstore",
       "id": "rag_chain_chromadb_vectorstore"
     },
@@ -406,7 +550,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "groq llm (llama-3.3-70b)",
       "id": "rag_chain_groq_llm"
     },
@@ -419,7 +563,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "similarity retriever (k=5)",
       "id": "rag_chain_similarity_retriever"
     },
@@ -445,7 +589,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 4,
       "norm_label": "handlesend chat handler",
       "id": "page_handlesend"
     },
@@ -471,7 +615,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 19,
       "norm_label": "root layout",
       "id": "layout_root"
     },
@@ -588,7 +732,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 2,
       "norm_label": "huggingface embeddings (all-minilm-l6-v2)",
       "id": "ingest_huggingface_embeddings"
     },
@@ -601,7 +745,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 10,
       "norm_label": "cors middleware",
       "id": "app_cors_middleware"
     },
@@ -614,7 +758,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 10,
       "norm_label": "next.js dev origins config",
       "id": "next_config_devorigins"
     }
@@ -629,6 +773,66 @@
       "confidence_score": 1.0,
       "source": "frontend_app_layout_tsx",
       "target": "app_layout_rootlayout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "frontend_app_page_tsx",
+      "target": "app_page_scrolltotop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "frontend_app_page_tsx",
+      "target": "app_page_handlenavclick",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "frontend_app_page_tsx",
+      "target": "app_page_handlesendmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "frontend_app_page_tsx",
+      "target": "app_page_handlecompare",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "frontend_app_page_tsx",
+      "target": "app_page_handlefileupload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "frontend_app_page_tsx",
+      "target": "app_page_getfeatureconfig",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -661,6 +865,47 @@
       "target": "app_page_handlenewchat"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "app_page_handlenavclick",
+      "target": "app_page_scrolltotop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\components\\FeaturesSection.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "frontend_components_featuressection_tsx",
+      "target": "components_featuressection_featurecard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\components\\HowItWorks.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_components_howitworks_tsx",
+      "target": "components_howitworks_step",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\components\\HowItWorks.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "frontend_components_howitworks_tsx",
+      "target": "components_howitworks_howitworks",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src\\app.py",
@@ -679,6 +924,16 @@
       "confidence_score": 1.0,
       "source": "src_app_py",
       "target": "src_app_answerresponse"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "src_app_py",
+      "target": "src_app_compareresponse",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -711,6 +966,16 @@
       "target": "src_app_ask_question"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "src_app_py",
+      "target": "src_app_compare_answers",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "src\\app.py",
@@ -731,6 +996,16 @@
       "target": "basemodel"
     },
     {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "src_app_compareresponse",
+      "target": "basemodel",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -740,6 +1015,17 @@
       "confidence_score": 1.0,
       "source": "src_app_ask_question",
       "target": "src_app_answerresponse"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "src_app_compare_answers",
+      "target": "src_app_compareresponse",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",

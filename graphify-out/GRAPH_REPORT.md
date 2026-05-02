@@ -1,22 +1,23 @@
 # Graph Report - Legal Assist Chatbot  (2026-05-03)
 
 ## Corpus Check
-- 9 files · ~3,243 words
+- 14 files · ~1,434,031 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 50 nodes · 45 edges · 7 communities detected
-- Extraction: 87% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 6 edges (avg confidence: 0.85)
+- 66 nodes · 59 edges · 8 communities detected
+- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 6 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Community 0|Community 0]]
 - [[_COMMUNITY_Community 1|Community 1]]
 - [[_COMMUNITY_Community 2|Community 2]]
+- [[_COMMUNITY_Community 3|Community 3]]
 - [[_COMMUNITY_Community 4|Community 4]]
-- [[_COMMUNITY_Community 8|Community 8]]
-- [[_COMMUNITY_Community 13|Community 13]]
-- [[_COMMUNITY_Community 14|Community 14]]
+- [[_COMMUNITY_Community 10|Community 10]]
+- [[_COMMUNITY_Community 18|Community 18]]
+- [[_COMMUNITY_Community 19|Community 19]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `load_rag_chain` - 6 edges
@@ -27,8 +28,8 @@
 6. `D.K. Basu vs State of West Bengal (1996)` - 4 edges
 7. `Vishaka & Ors vs State of Rajasthan (1997)` - 4 edges
 8. `AnswerResponse` - 3 edges
-9. `ingest_documents Pipeline` - 3 edges
-10. `ChromaDB Vectorstore` - 3 edges
+9. `CompareResponse` - 3 edges
+10. `ingest_documents Pipeline` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Legal Buddy Project` --references--> `Shreya Singhal vs U.O.I (2015)`  [EXTRACTED]
@@ -50,50 +51,56 @@
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.23
-Nodes (12): D.K. Basu vs State of West Bengal (1996), Maneka Gandhi vs Union Of India (1978), handleSend Chat Handler, LegalBuddy Chat Component, Preset Legal Questions, Article 21 - Right to Life and Personal Liberty, Arrest & Detention Guidelines, Legal Buddy Project (+4 more)
+Cohesion: 0.25
+Nodes (11): D.K. Basu vs State of West Bengal (1996), Maneka Gandhi vs Union Of India (1978), LegalBuddy Chat Component, Preset Legal Questions, Article 21 - Right to Life and Personal Liberty, Arrest & Detention Guidelines, Legal Buddy Project, Section 66A IT Act (+3 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.22
-Nodes (9): AnswerResponse, ask_question Endpoint, QuestionRequest, format_docs Helper, Groq LLM (Llama-3.3-70b), Legal Expert Prompt Template, load_rag_chain, Similarity Retriever (k=5) (+1 more)
+Nodes (2): handleNavClick(), scrollToTop()
 
 ### Community 2 - "Community 2"
-Cohesion: 0.38
-Nodes (4): BaseModel, AnswerResponse, ask_question(), QuestionRequest
+Cohesion: 0.22
+Nodes (10): Document Chunking Strategy, HuggingFace Embeddings (all-MiniLM-L6-v2), ingest_documents Pipeline, ChromaDB Vectorstore, format_docs Helper, Groq LLM (Llama-3.3-70b), Legal Expert Prompt Template, load_rag_chain (+2 more)
+
+### Community 3 - "Community 3"
+Cohesion: 0.33
+Nodes (6): BaseModel, AnswerResponse, ask_question(), compare_answers(), CompareResponse, QuestionRequest
 
 ### Community 4 - "Community 4"
-Cohesion: 0.67
-Nodes (4): Document Chunking Strategy, HuggingFace Embeddings (all-MiniLM-L6-v2), ingest_documents Pipeline, ChromaDB Vectorstore
+Cohesion: 0.5
+Nodes (4): AnswerResponse, ask_question Endpoint, QuestionRequest, handleSend Chat Handler
 
-### Community 8 - "Community 8"
+### Community 10 - "Community 10"
 Cohesion: 1.0
 Nodes (2): CORS Middleware, Next.js Dev Origins Config
 
-### Community 13 - "Community 13"
+### Community 18 - "Community 18"
 Cohesion: 1.0
 Nodes (1): FastAPI Server
 
-### Community 14 - "Community 14"
+### Community 19 - "Community 19"
 Cohesion: 1.0
 Nodes (1): Root Layout
 
 ## Knowledge Gaps
 - **14 isolated node(s):** `FastAPI Server`, `QuestionRequest`, `AnswerResponse`, `Document Chunking Strategy`, `format_docs Helper` (+9 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 8`** (2 nodes): `CORS Middleware`, `Next.js Dev Origins Config`
+- **Thin community `Community 1`** (10 nodes): `getFeatureConfig()`, `handleCompare()`, `handleFileUpload()`, `handleNavClick()`, `handleNewChat()`, `handleSend()`, `handleSendMessage()`, `ScaleIcon()`, `scrollToTop()`, `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 13`** (1 nodes): `FastAPI Server`
+- **Thin community `Community 10`** (2 nodes): `CORS Middleware`, `Next.js Dev Origins Config`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 14`** (1 nodes): `Root Layout`
+- **Thin community `Community 18`** (1 nodes): `FastAPI Server`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 19`** (1 nodes): `Root Layout`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `load_rag_chain` connect `Community 1` to `Community 4`?**
-  _High betweenness centrality (0.129) - this node is a cross-community bridge._
-- **Why does `Legal Buddy Project` connect `Community 0` to `Community 1`?**
-  _High betweenness centrality (0.092) - this node is a cross-community bridge._
+- **Why does `load_rag_chain` connect `Community 2` to `Community 4`?**
+  _High betweenness centrality (0.073) - this node is a cross-community bridge._
+- **Why does `Legal Buddy Project` connect `Community 0` to `Community 2`?**
+  _High betweenness centrality (0.052) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Maneka Gandhi vs Union Of India (1978)` (e.g. with `D.K. Basu vs State of West Bengal (1996)` and `Vishaka & Ors vs State of Rajasthan (1997)`) actually correct?**
   _`Maneka Gandhi vs Union Of India (1978)` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `FastAPI Server`, `QuestionRequest`, `AnswerResponse` to the rest of the system?**

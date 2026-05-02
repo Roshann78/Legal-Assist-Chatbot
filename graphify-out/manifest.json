@@ -4,7 +4,7 @@
     "hash": "dfa1f5f6a7037bf39dc510f30b180002"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\next-env.d.ts": {
-    "mtime": 1776124076.147375,
+    "mtime": 1777763835.4344296,
     "hash": "d0f8375ae1199dc7acd3977fc33b78b8"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\next.config.ts": {
@@ -16,28 +16,48 @@
     "hash": "239f3ebf717465dc636818a1a619398d"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\app\\layout.tsx": {
-    "mtime": 1776125896.0882635,
-    "hash": "6de5dc2d9026f0c053e255db47261966"
+    "mtime": 1777762308.3166027,
+    "hash": "81f93f8b94b7178cd1b568e14b9d66b3"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\app\\page.tsx": {
-    "mtime": 1776125866.346409,
-    "hash": "44fb26f13da8e1411e2f4d5cb287e8c4"
+    "mtime": 1777763718.7319536,
+    "hash": "bcc20dec4e33c12296e2e2e35f830b1b"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\components\\FeaturesSection.tsx": {
+    "mtime": 1777762573.0947192,
+    "hash": "a7f7a6ae12a23130402e18b846c63265"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\components\\Footer.tsx": {
+    "mtime": 1777762623.239484,
+    "hash": "bd229f116027bd257a913030f77faad6"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\components\\HeroSection.tsx": {
+    "mtime": 1777762434.3232799,
+    "hash": "e25cb527d71ea24c5fa86c47c340b38b"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\components\\HowItWorks.tsx": {
+    "mtime": 1777762879.0356898,
+    "hash": "bf8de4434af5b0d41cbb5be9cf513b5a"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\components\\Navbar.tsx": {
+    "mtime": 1777762357.5469744,
+    "hash": "019a17a3df0cca320527e2b85e18e1dd"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\src\\app.py": {
-    "mtime": 1776361590.517941,
-    "hash": "7604fd6dfdd70aae4525d3b0bc7cb84f"
+    "mtime": 1777763811.3294563,
+    "hash": "82a5333985eaac2e4676145adff218a7"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\src\\ingest.py": {
     "mtime": 1776122189.2004116,
     "hash": "cd8a267e7d1373aba9239125875e4ee9"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\src\\rag_chain.py": {
-    "mtime": 1777759047.392789,
-    "hash": "b88e21c3b60440e9c6523b3a7420ad82"
+    "mtime": 1777763805.1940246,
+    "hash": "52e837dac5e5bf0dd90630dd892efdb0"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\README.md": {
-    "mtime": 1776125879.732046,
-    "hash": "87ccdb5fd6154a2c473d44951e987194"
+    "mtime": 1777762715.191532,
+    "hash": "a658424eca558aa13c008b7f461e49ca"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\requirements.txt": {
     "mtime": 1777758137.1999674,

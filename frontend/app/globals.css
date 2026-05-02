@@ -1,157 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
 
 @import "tailwindcss";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono);
-
-  /* Navy & Gold palette */
-  --color-navy-950: #080d1a;
-  --color-navy-900: #0c1425;
-  --color-navy-800: #111d35;
-  --color-navy-700: #1a2a4a;
-  --color-navy-600: #243760;
-  --color-navy-500: #2f4578;
-  --color-navy-400: #4a6394;
-  --color-navy-300: #7089b3;
-  --color-navy-200: #9bb0d0;
-  --color-navy-100: #c8d6e8;
-  --color-navy-50: #e8eef6;
-
-  --color-gold-500: #c9a84c;
-  --color-gold-400: #d4b85e;
-  --color-gold-300: #e0c97a;
-  --color-gold-200: #ebd99d;
-  --color-gold-100: #f5ecc8;
-  --color-gold-600: #b08f36;
-  --color-gold-700: #8c7029;
-}
-
 :root {
-  --background: #080d1a;
-  --foreground: #e8eef6;
+  --white: #FFFFFF;
+  --off-white: #F5F5F0;
+  --charcoal: #111827;
+  --navy: #0A2342;
+  --navy-light: #163A5F;
+  --gold: #B8860B;
+  --gray-light: #F3F4F6;
+  --gray-border: #D1D5DB;
+  --gray-text: #4B5563;
+  --success: #166534;
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(74, 99, 148, 0.3) transparent;
+@theme inline {
+  --color-white: var(--white);
+  --color-off-white: var(--off-white);
+  --color-charcoal: var(--charcoal);
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+  --color-gold: var(--gold);
+  --color-gray-light: var(--gray-light);
+  --color-gray-border: var(--gray-border);
+  --color-gray-text: var(--gray-text);
+  --color-success: var(--success);
+  
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
 }
 
-*::-webkit-scrollbar {
-  width: 6px;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: rgba(74, 99, 148, 0.3);
-  border-radius: 20px;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--white);
+  color: var(--charcoal);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.3); }
-  50% { box-shadow: 0 0 0 8px rgba(201, 168, 76, 0); }
-}
-
-@keyframes typing-dot {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-  30% { transform: translateY(-6px); opacity: 1; }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.4s ease-out both;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out both;
-}
-
-.animate-slide-left {
-  animation: slideInLeft 0.35s ease-out both;
-}
-
-.animate-slide-right {
-  animation: slideInRight 0.35s ease-out both;
-}
-
-.animate-pulse-gold {
-  animation: pulse-gold 2s infinite;
-}
-
-.typing-dot {
-  animation: typing-dot 1.4s ease-in-out infinite;
-}
-
-.shimmer {
-  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.08), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-/* Glassmorphism */
-.glass {
-  background: rgba(12, 20, 37, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.glass-light {
-  background: rgba(17, 29, 53, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
 }

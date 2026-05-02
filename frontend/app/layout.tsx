@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Legal Buddy | Legal Assist Chatbot",
-  description: "Your friendly Indian legal assistant chatbot.",
+  title: "LegalAssist AI — Indian Legal & Banking Assistant",
+  description: "AI powered assistant for Indian legal queries and banking guidance",
 };
 
 export default function RootLayout({

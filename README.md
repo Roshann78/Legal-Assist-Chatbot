@@ -1,162 +1,158 @@
-<div align="center">
-  <div style="background-color: #0f172a; padding: 20px; border-radius: 15px; display: inline-block;">
-    <h1 style="color: white; margin: 0;">⚖️ Legal Buddy: Legal Assist Chatbot</h1>
-  </div>
-  <br/><br/>
-  <p><i>A full-stack, AI-powered Legal Research Assistant leveraging Retrieval-Augmented Generation over Landmark Indian Supreme Court Judgments.</i></p>
+# ⚖️ LegalAssist AI
 
-  <!-- Badges -->
-  <img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python" />
-  <img src="https://img.shields.io/badge/Next.js-14+-black.svg" alt="Next.js" />
-  <img src="https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi" alt="FastAPI" />
-  <img src="https://img.shields.io/badge/LangChain-🦜🔗-green.svg" alt="LangChain" />
-  <img src="https://img.shields.io/badge/Vector_DB-ChromaDB-orange.svg" alt="ChromaDB" />
-  <img src="https://img.shields.io/badge/LLM-Llama_3.3_70B-purple.svg" alt="LLMs" />
-</div>
+**LegalAssist AI** is an advanced, AI-powered legal and banking assistant specifically tailored for the Indian context. Built using state-of-the-art **Retrieval Augmented Generation (RAG)** technology powered by the **Llama 3.3 70B** model, it provides highly accurate, context-aware, and document-grounded answers to complex legal and financial queries. 
 
-<br />
-
-## 📖 Comprehensive Overview
-
-**Legal Buddy** is a state-of-the-art Retrieval-Augmented Generation (RAG) ecosystem built to assist legal professionals, researchers, and citizens in understanding granular Indian legal contexts. 
-
-Recently upgraded into a complete **full-stack web application**, Legal Buddy features a blazing-fast Python **FastAPI backend** handling document retrieval and LLM reasoning, seamlessly connected to a modern, responsive **Next.js & Tailwind CSS frontend** that provides a premium, professional user experience mimicking top-tier legal firm aesthetics.
-
-The agent grounds its knowledge directly in a curated vector database of monumental Indian Constitutional Law cases, effectively minimizing model hallucinations.
+Unlike generic conversational AI, LegalAssist AI actively retrieves information from a curated vector database of over 11,000 knowledge segments derived directly from official Indian legal documents, ensuring that responses are not just fluent, but factually grounded with relevant article numbers, section references, and case citations.
 
 ---
 
-## ✨ System Features
+## ✨ Features
 
-### 🖥️ Modern Web Interface (Frontend)
-- **Professional Firm Aesthetic:** A sleek, deep-navy sidebar paired with a clean, distraction-free main chat interface. 
-- **Interactive Chat Experience:** User and AI chat bubbles with distinct styling, typing indicators, loading states, and smooth auto-scrolling.
-- **One-Click Query Presets:** Helpful starter questions provided natively in the welcome screen.
-- **Fully Responsive:** Tailwind-powered design that scales elegantly across desktops, tablets, and mobile devices.
+The platform offers four distinct, specialized AI tools accessible through a professional, sleek web interface:
 
-### ⚙️ Robust API (Backend)
-- **FastAPI Powered:** Lightweight, asynchronous server exposing dedicated `/health` and `/ask` REST endpoints.
-- **CORS Configured:** Secure middleware setup designed to support local and network traffic communication between the UI and backend. 
+### 1. Legal Assistant
+- **Purpose:** Your primary tool for querying Indian law.
+- **Capabilities:** Ask complex questions regarding Supreme Court judgments, fundamental rights, the Indian Penal Code (IPC), Code of Criminal Procedure (CrPC), and constitutional law.
+- **Output:** Delivers precise answers grounded in 29+ verified court documents, frequently citing specific articles, sections, and landmark case laws to support its analysis.
 
-### 🧠 Advanced AI & RAG Pipeline
-- **Smart Ingestion Pipeline (`ingest.py`):** Automatically extracts, chunks (1000 tokens with 200 overlap), and embeds densely populated PDF legal judgments.
-- **High-Fidelity Retrieval (`rag_chain.py`):** Utilizes `HuggingFaceEmbeddings` (`sentence-transformers`) stored locally in `ChromaDB` using advanced Similarity Search capabilities.
-- **Groq-Accelerated LLM Inference:** Powered by Meta's `Llama-3.3-70b-versatile` running on Groq LPU inference engines for lightning-fast answer generation.
+### 2. Document Chat
+- **Purpose:** Dynamic, on-the-fly document intelligence.
+- **Capabilities:** Upload any legal PDF (such as a contract, legal notice, judgment, or lease agreement).
+- **Output:** Instantly chat with the document. Ask for summaries, identify key clauses, or clarify specific obligations contained *only* within the uploaded text.
 
----
+### 3. Banking Assistant
+- **Purpose:** Financial inclusion and regulatory guidance.
+- **Capabilities:** Navigate the complexities of RBI guidelines, the Pradhan Mantri Jan Dhan Yojana (PMJDY), financial inclusion policies, and rural banking assistance.
+- **Output:** Translates dense financial regulations into plain, understandable language to assist citizens with their banking rights and procedures.
 
-## 🛠️ Complete Technology Stack
-
-| Domain | Technologies |
-| :--- | :--- |
-| **Frontend UI/UX** | Next.js (React), Tailwind CSS, TypeScript, Lucide React Icons |
-| **Backend API** | Python, FastAPI, Uvicorn, Pydantic |
-| **AI Framework** | LangChain Core & Community |
-| **LLM & Embeddings** | Groq (`langchain-groq`), HuggingFace (`sentence-transformers/all-MiniLM-L6-v2`) |
-| **Database & Ingestion** | ChromaDB, PyPDFDirectoryLoader, RecursiveCharacterTextSplitter |
-| **Environment Tools** | `dotenv` (.env.local, .env) |
+### 4. RAG vs AI Comparison
+- **Purpose:** Educational tool demonstrating the power of grounded AI.
+- **Capabilities:** Submit a legal query and view two side-by-side responses.
+- **Output:** Compares the highly accurate, source-cited response from the LegalAssist RAG pipeline against a generic response generated by the base Llama model without document retrieval. Witness why RAG matters in the legal domain.
 
 ---
 
-## 📂 Architecture & Directory Structure
+## 🛠️ Tech Stack
+
+LegalAssist AI leverages a modern, robust, and scalable technology stack:
+
+- **Large Language Model (LLM):** Llama 3.3 70B (accessed via Groq API for ultra-low latency inference)
+- **RAG Framework:** LangChain (orchestrating prompt templates, document loaders, and retrieval chains)
+- **Vector Database:** ChromaDB (efficient local storage and similarity search of document embeddings)
+- **Embeddings Model:** `sentence-transformers/all-MiniLM-L6-v2` (HuggingFace)
+- **Backend API:** FastAPI (Python) - High-performance asynchronous API serving
+- **Frontend Framework:** Next.js 15 (App Router) with React
+- **Styling:** Tailwind CSS v4 (Custom dark navy and gold professional aesthetic)
+- **Knowledge Base Scale:** 29+ core legal documents segmented into **11,694 highly dense vectors**.
+
+---
+
+## 📁 Project Structure
 
 ```text
-Legal Buddy (Legal Assist Chatbot)/
-├── frontend/                  # Next.js React Web UI
-│   ├── app/                   # Next.js App Router (page.tsx, layout.tsx)
-│   ├── next.config.ts         # Next.js configuration (Dev Origins allowed)
-│   └── package.json           # Node dependencies
-├── src/                       # FastAPI & Langchain Python Backend
-│   ├── app.py                 # FastAPI server and endpoints
-│   ├── ingest.py              # Data processing and ChromaDB ingestion logic
-│   └── rag_chain.py           # LLM Prompting and Chain Logic
-├── data/                      # Source PDFs of Landmark Judgments
-├── chroma_db/                 # Persistent Local Vector Database
-├── notebooks/                 # Jupyter Notebook testing environments
-├── requirements.txt           # Python application dependencies
-└── README.md                  # Detailed Project Documentation
+LegalAssistChatbot/
+├── data/                  # Source Legal PDF documents (Constitutions, Acts, Judgments)
+├── notebooks/             # Jupyter notebooks for experimentation and pipeline prototyping
+├── src/                   # Python Backend Source Code
+│   ├── ingest.py          # Document ingestion and chunking pipeline (PDF -> ChromaDB)
+│   ├── rag_chain.py       # LangChain implementation (Retrievers, Prompts, LLM initialization)
+│   └── app.py             # FastAPI backend routing and concurrent execution logic
+├── frontend/              # Next.js Frontend Application
+│   ├── app/               # Next.js App Router (page.tsx, layout.tsx, globals.css)
+│   └── components/        # Reusable UI components (Hero, Features, Sidebar, Chat Views)
+├── chroma_db/             # Local Vector database storage (auto-generated during ingestion)
+├── .env                   # Environment variables (API keys, Config) - Not committed to version control
+└── requirements.txt       # Python backend dependencies
 ```
 
 ---
 
-## ⚖️ Curated Landmark Cases
+## 🚀 Setup Instructions
 
-The current system relies on the following Indian Supreme Court decisions:
-1. **Maneka Gandhi vs Union Of India (1978):** Expanded the scope of Article 21 (Right to Life and Personal Liberty).
-2. **Shreya Singhal vs U.O.I (2015):** Struck down Section 66A of the IT Act, championing Freedom of Speech and Expression.
-3. **D.K. Basu vs State Of West Bengal (1996):** Laid down foundational guidelines for arrest/detention to prevent custodial violence.
-4. **Vishaka & Ors vs State Of Rajasthan (1997):** Established the primary guidelines against workplace sexual harassment.
+Follow these steps to run LegalAssist AI locally on your machine.
 
----
+### Prerequisites
+- Python 3.10+
+- Node.js 18+ and npm
+- A [Groq API Key](https://console.groq.com/)
 
-## 🚀 Setup & Installation Guide
+### 1. Clone the repository
+```bash
+git clone https://github.com/yourusername/Legal-Assist-Chatbot.git
+cd "Legal-Assist-Chatbot"
+```
 
-Setting up Legal Buddy locally requires starting both the Backend Python Server and the Frontend Node.js Server.
+### 2. Set up the Python Backend
+Create and activate a virtual environment:
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
 
-### Phase 1: Global Setup & Backend
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd Legal-Assist-Chatbot
-   ```
-2. **Setup Python Virtual Environment:**
-   ```bash
-   python -m venv venv
-   
-   # On Windows:
-   venv\Scripts\activate
-   
-   # On macOS/Linux:
-   source venv/bin/activate
-   ```
-3. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   pip install langchain-huggingface sentence-transformers  # Required for AI Embeddings
-   ```
-4. **Environment Variables (.env):** Create a `.env` file in the root directory and add your API keys:
-   ```env
-   GROQ_API_KEY="your_groq_api_key_here"
-   ```
-5. *(Optional)* **Re-ingest Documents:** If you add new PDFs to the `data/` folder, run the ingestion script:
-   ```bash
-   cd src
-   python ingest.py
-   cd ..
-   ```
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
 
-### Phase 2: Start the FastAPI Backend
-Ensure your virtual environment is active, then start the API server:
+Install the required Python dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure Environment Variables
+Create a `.env` file in the root of the project and add your Groq API key:
+```env
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+### 4. Build the Vector Database (Ingestion)
+Before running the app, you must process the PDF documents in the `data/` folder and build the `chroma_db` vector store:
+```bash
+python src/ingest.py
+```
+*(Note: This step may take several minutes depending on your hardware as it generates embeddings for over 11,000 document chunks).*
+
+### 5. Start the FastAPI Backend Server
+Start the backend server with live reloading:
 ```bash
 cd src
 uvicorn app:app --reload
 ```
-*The backend will boot up and actively listen on `http://127.0.0.1:8000`.*
+The backend API will be available at `http://127.0.0.1:8000`. You can view the interactive API docs at `http://127.0.0.1:8000/docs`.
 
-### Phase 3: Setup & Start the Frontend
-Open a **new terminal window**, ensuring you are in the project root:
-1. **Navigate to the frontend directory:**
-   ```bash
-   cd frontend
-   ```
-2. **Install Node Modules:**
-   ```bash
-   npm install
-   ```
-3. **Verify Environment Variables:** Make sure your `frontend/.env.local` exists and contains:
-   ```env
-   NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
-   ```
-4. **Start Development Server:**
-   ```bash
-   npm run dev
-   ```
-*The frontend interface is now accessible at `http://localhost:3000`!*
+### 6. Start the Next.js Frontend
+Open a **new terminal window**, navigate to the frontend directory, install node modules, and start the development server:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### 7. Access the Application
+Open your browser and navigate to:
+**http://localhost:3000**
+
+---
+
+## 📚 Knowledge Base
+
+The underlying knowledge graph and vector database have been rigorously trained on primary legal sources to ensure high fidelity. The current data corpus includes:
+
+- **24+ Landmark Supreme Court Judgments:** Covering essential rulings on fundamental rights, basic structure doctrine (e.g., *Kesavananda Bharati*), and personal liberty (*Maneka Gandhi*, *Puttaswamy*).
+- **The Constitution of India:** Complete text for constitutional queries.
+- **Indian Penal Code (IPC):** Comprehensive coverage of criminal offenses.
+- **Code of Criminal Procedure (CrPC):** Procedural law guidelines.
+- **Indian Evidence Act:** Evidentiary rules and standards.
+- **Right to Information (RTI) Act 2005:** Transparency laws.
+- **Protection of Women from Domestic Violence Act:** Social justice legislation.
+- **RBI Banking Guidelines:** *(Integration in progress)* Focuses on financial inclusion, PMJDY, and consumer banking rights.
 
 ---
 
 ## ⚠️ Disclaimer
-*Legal Buddy is an experimental AI tool designed solely for legal learning, development, and conceptual research. It should **not** be used as a substitute for certified, professional legal counsel. While the RAG architecture strictly grounds context, external AI models may occasionally interpret texts inaccurately.*
 
----
-<p align="center"><b>Built with dedication to simplify legal research through AI.</b></p>
+**LegalAssist AI is a technological demonstration and educational tool.** 
+
+This tool is designed for informational purposes only and **does not constitute legal advice, financial advice, or establish an attorney-client relationship.** AI models, including RAG-assisted pipelines, can hallucinate or misinterpret legal nuance. You should never take action or refrain from taking action based solely on the output of this application. 
+
+**Always consult a qualified, licensed lawyer or financial professional for matters requiring legal or financial advice.**

@@ -31,23 +31,31 @@ def load_rag_chain():
     )
 
     template = """
-You are an expert legal assistant specializing in Indian law, 
-Supreme Court judgments and constitutional law.
+You are an expert legal assistant specializing in Indian law, Supreme Court judgments and constitutional law.
 
-Use the following context from actual legal documents to answer 
-the question. Be specific and cite article numbers, section 
-numbers, or case names where available.
+Use the following context from actual legal documents to answer the question accurately.
 
-If the context contains partial information, use it to give 
-the best possible answer. Only say you don't have enough 
-information if the context has absolutely nothing relevant.
+IMPORTANT FORMATTING RULES - always follow these:
+- Never write a single long paragraph
+- Always break your answer into clear sections
+- Use numbered lists for sequential information like guidelines, steps, or procedures
+- Use bullet points for non-sequential information
+- Add a blank line between each point or section
+- If citing a case, put the case name in bold
+- If citing a section or article number, put it in bold
+- Start with a one line direct answer to the question
+- Then provide detailed explanation below
+- End with a brief practical implication if relevant
+
+If the answer is not in the context say:
+"I don't have enough information in my documents to answer this accurately."
 
 Context:
 {context}
 
 Question: {question}
 
-Answer (be specific, mention article/section numbers if available):
+Answer:
 """
 
     prompt = ChatPromptTemplate.from_template(template)

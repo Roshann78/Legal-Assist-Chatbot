@@ -71,7 +71,7 @@ def compare_answers(request: QuestionRequest):
         return chain.invoke(question)
     
     def get_base_answer():
-        response = base_llm.invoke(question)
+        response = base_llm.invoke("Please answer this question with clear formatting, use numbered points and paragraphs, not a single block of text: " + question)
         return response.content
     
     with ThreadPoolExecutor(max_workers=2) as executor:

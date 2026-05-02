@@ -6,6 +6,7 @@ import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
+import ReactMarkdown from "react-markdown";
 
 type Section = "legal" | "banking" | "document" | "compare" | null;
 
@@ -164,8 +165,8 @@ export default function Home() {
       </header>
 
       <main className="mt-[56px] flex-1 max-w-[800px] w-full mx-auto p-8 flex flex-col">
-        <div className="mb-8">
-          <h2 className="font-serif text-[28px] text-charcoal font-bold">{config?.title}</h2>
+        <div className="mb-6">
+          <h2 className="font-serif text-[28px] text-charcoal font-bold mb-2">{config?.title}</h2>
           <p className="text-[14px] text-gray-text">{config?.subtext}</p>
         </div>
 
@@ -190,15 +191,27 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="border border-gray-border rounded-[8px] overflow-hidden flex flex-col">
-                <div className="bg-navy text-white p-3 font-serif text-center font-bold">LegalAssist (RAG)</div>
-                <div className="p-6 text-[14px] text-charcoal leading-relaxed min-h-[300px]">
-                  {compareResults?.rag || "Result will appear here..."}
+                <div className="bg-navy text-white p-3 font-serif text-center font-bold border-b border-gray-border">LegalAssist (RAG)</div>
+                <div className="p-6 min-h-[300px] max-h-[500px] overflow-y-auto">
+                  {compareResults?.rag ? (
+                    <div className="markdown-body">
+                      <ReactMarkdown>{compareResults.rag}</ReactMarkdown>
+                    </div>
+                  ) : (
+                    <div className="text-[14px] text-gray-text">Result will appear here...</div>
+                  )}
                 </div>
               </div>
               <div className="border border-gray-border rounded-[8px] overflow-hidden flex flex-col">
-                <div className="bg-charcoal text-white p-3 font-serif text-center font-bold">Base Llama (No RAG)</div>
-                <div className="p-6 text-[14px] text-charcoal leading-relaxed min-h-[300px]">
-                  {compareResults?.base || "Result will appear here..."}
+                <div className="bg-charcoal text-white p-3 font-serif text-center font-bold border-b border-gray-border">Base Llama (No RAG)</div>
+                <div className="p-6 min-h-[300px] max-h-[500px] overflow-y-auto">
+                  {compareResults?.base ? (
+                    <div className="markdown-body">
+                      <ReactMarkdown>{compareResults.base}</ReactMarkdown>
+                    </div>
+                  ) : (
+                    <div className="text-[14px] text-gray-text">Result will appear here...</div>
+                  )}
                 </div>
               </div>
             </div>
@@ -229,11 +242,16 @@ export default function Home() {
                   Start a conversation...
                 </div>
               )}
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
                 {messages.map((m, i) => (
-                  <div key={i} className={`flex flex-col ${m.role === "user" ? "items-end" : "items-start"}`}>
-                    <div className={`max-w-[70%] p-3 px-4 rounded-[8px] text-[14px] ${m.role === "user" ? "bg-navy text-white" : "bg-gray-light text-charcoal"}`}>
-                      {m.content}
+                  <div key={i} className={`flex flex-col mb-4 ${m.role === "user" ? "items-end" : "items-start"}`}>
+                    {m.role === "ai" && <span className="text-[11px] text-gray-text mb-1 ml-1">LegalAssist</span>}
+                    <div className={`max-w-[75%] px-5 py-4 rounded-[8px] leading-[1.7] ${m.role === "user" ? "bg-navy text-white text-[15px]" : "bg-gray-light text-charcoal"}`}>
+                      {m.role === "user" ? m.content : (
+                        <div className="markdown-body">
+                          <ReactMarkdown>{m.content}</ReactMarkdown>
+                        </div>
+                      )}
                     </div>
                     <span className="text-[11px] text-gray-text mt-1">{m.timestamp}</span>
                   </div>
@@ -242,7 +260,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 mt-4">
               <input 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
-
 @import "tailwindcss";
 
 :root {
@@ -31,19 +30,65 @@
   --font-sans: "Inter", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--white);
+    color: var(--charcoal);
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+  }
 }
 
-body {
-  background-color: var(--white);
-  color: var(--charcoal);
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 0;
-}
+@layer components {
+  .markdown-body {
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--charcoal);
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
+  .markdown-body p {
+    margin-bottom: 12px;
+  }
+
+  .markdown-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .markdown-body strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .markdown-body ul, .markdown-body ol {
+    margin-top: 8px;
+    margin-bottom: 12px;
+    padding-left: 24px;
+  }
+
+  .markdown-body ol {
+    list-style-type: decimal;
+  }
+
+  .markdown-body ul {
+    list-style-type: disc;
+  }
+
+  .markdown-body li {
+    margin-bottom: 8px;
+  }
+
+  .markdown-body li:last-child {
+    margin-bottom: 0;
+  }
 }

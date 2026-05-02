@@ -9,3 +9,4 @@ ipykernel
 langchain-groq
 fastapi
 uvicorn
+langchain-chroma

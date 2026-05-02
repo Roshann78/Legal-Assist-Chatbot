@@ -21,7 +21,7 @@ def load_rag_chain():
 
     retriever = vectorstore.as_retriever(
         search_type="similarity",
-        search_kwargs={"k": 5}
+        search_kwargs={"k": 8}
     )
 
     llm = ChatGroq(
@@ -31,18 +31,23 @@ def load_rag_chain():
     )
 
     template = """
-You are an expert legal assistant specializing in Indian law 
-and Supreme Court judgments. Use the following context from 
-actual court documents to answer the question accurately.
-If the answer is not in the context, say "I don't have enough 
-information in my documents to answer this accurately."
+You are an expert legal assistant specializing in Indian law, 
+Supreme Court judgments and constitutional law.
+
+Use the following context from actual legal documents to answer 
+the question. Be specific and cite article numbers, section 
+numbers, or case names where available.
+
+If the context contains partial information, use it to give 
+the best possible answer. Only say you don't have enough 
+information if the context has absolutely nothing relevant.
 
 Context:
 {context}
 
 Question: {question}
 
-Answer:
+Answer (be specific, mention article/section numbers if available):
 """
 
     prompt = ChatPromptTemplate.from_template(template)

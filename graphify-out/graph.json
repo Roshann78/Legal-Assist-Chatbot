@@ -247,9 +247,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_legal_buddy",
       "community": 0,
-      "norm_label": "legal buddy project"
+      "norm_label": "legal buddy project",
+      "id": "readme_legal_buddy"
     },
     {
       "label": "RAG Architecture",
@@ -261,9 +261,9 @@
       "author": null,
       "contributor": null,
       "rationale": "RAG chosen to ground LLM responses in actual court documents, minimizing hallucinations for legal accuracy",
-      "id": "readme_rag_architecture",
       "community": 1,
-      "norm_label": "rag architecture"
+      "norm_label": "rag architecture",
+      "id": "readme_rag_architecture"
     },
     {
       "label": "FastAPI Server",
@@ -274,9 +274,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "app_fastapi_server",
       "community": 13,
-      "norm_label": "fastapi server"
+      "norm_label": "fastapi server",
+      "id": "app_fastapi_server"
     },
     {
       "label": "QuestionRequest",
@@ -287,9 +287,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "app_questionrequest",
       "community": 1,
-      "norm_label": "questionrequest"
+      "norm_label": "questionrequest",
+      "id": "app_questionrequest"
     },
     {
       "label": "AnswerResponse",
@@ -300,9 +300,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "app_answerresponse",
       "community": 1,
-      "norm_label": "answerresponse"
+      "norm_label": "answerresponse",
+      "id": "app_answerresponse"
     },
     {
       "label": "ask_question Endpoint",
@@ -313,9 +313,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "app_ask_question",
       "community": 1,
-      "norm_label": "ask_question endpoint"
+      "norm_label": "ask_question endpoint",
+      "id": "app_ask_question"
     },
     {
       "label": "ingest_documents Pipeline",
@@ -326,9 +326,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ingest_ingest_documents",
       "community": 4,
-      "norm_label": "ingest_documents pipeline"
+      "norm_label": "ingest_documents pipeline",
+      "id": "ingest_ingest_documents"
     },
     {
       "label": "Document Chunking Strategy",
@@ -340,9 +340,9 @@
       "author": null,
       "contributor": null,
       "rationale": "chunk_size=1000 with overlap=200 balances context preservation with retrieval granularity for legal texts",
-      "id": "ingest_chunking_strategy",
       "community": 4,
-      "norm_label": "document chunking strategy"
+      "norm_label": "document chunking strategy",
+      "id": "ingest_chunking_strategy"
     },
     {
       "label": "load_rag_chain",
@@ -353,9 +353,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "rag_chain_load_rag_chain",
       "community": 1,
-      "norm_label": "load_rag_chain"
+      "norm_label": "load_rag_chain",
+      "id": "rag_chain_load_rag_chain"
     },
     {
       "label": "Legal Expert Prompt Template",
@@ -367,9 +367,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Prompt instructs LLM to act as Indian law expert, explicitly refusing to answer if context insufficient - prevents hallucination",
-      "id": "rag_chain_legal_prompt",
       "community": 1,
-      "norm_label": "legal expert prompt template"
+      "norm_label": "legal expert prompt template",
+      "id": "rag_chain_legal_prompt"
     },
     {
       "label": "format_docs Helper",
@@ -380,9 +380,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "rag_chain_format_docs",
       "community": 1,
-      "norm_label": "format_docs helper"
+      "norm_label": "format_docs helper",
+      "id": "rag_chain_format_docs"
     },
     {
       "label": "ChromaDB Vectorstore",
@@ -393,9 +393,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "rag_chain_chromadb_vectorstore",
       "community": 4,
-      "norm_label": "chromadb vectorstore"
+      "norm_label": "chromadb vectorstore",
+      "id": "rag_chain_chromadb_vectorstore"
     },
     {
       "label": "Groq LLM (Llama-3.3-70b)",
@@ -406,9 +406,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "rag_chain_groq_llm",
       "community": 1,
-      "norm_label": "groq llm (llama-3.3-70b)"
+      "norm_label": "groq llm (llama-3.3-70b)",
+      "id": "rag_chain_groq_llm"
     },
     {
       "label": "Similarity Retriever (k=5)",
@@ -419,9 +419,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "rag_chain_similarity_retriever",
       "community": 1,
-      "norm_label": "similarity retriever (k=5)"
+      "norm_label": "similarity retriever (k=5)",
+      "id": "rag_chain_similarity_retriever"
     },
     {
       "label": "LegalBuddy Chat Component",
@@ -432,9 +432,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "page_legalbuddy",
       "community": 0,
-      "norm_label": "legalbuddy chat component"
+      "norm_label": "legalbuddy chat component",
+      "id": "page_legalbuddy"
     },
     {
       "label": "handleSend Chat Handler",
@@ -445,9 +445,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "page_handlesend",
       "community": 0,
-      "norm_label": "handlesend chat handler"
+      "norm_label": "handlesend chat handler",
+      "id": "page_handlesend"
     },
     {
       "label": "Preset Legal Questions",
@@ -458,9 +458,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "page_preset_questions",
       "community": 0,
-      "norm_label": "preset legal questions"
+      "norm_label": "preset legal questions",
+      "id": "page_preset_questions"
     },
     {
       "label": "Root Layout",
@@ -471,9 +471,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "layout_root",
       "community": 14,
-      "norm_label": "root layout"
+      "norm_label": "root layout",
+      "id": "layout_root"
     },
     {
       "label": "Maneka Gandhi vs Union Of India (1978)",
@@ -484,9 +484,9 @@
       "captured_at": "1978-01-25",
       "author": null,
       "contributor": null,
-      "id": "maneka_gandhi_case",
       "community": 0,
-      "norm_label": "maneka gandhi vs union of india (1978)"
+      "norm_label": "maneka gandhi vs union of india (1978)",
+      "id": "maneka_gandhi_case"
     },
     {
       "label": "Shreya Singhal vs U.O.I (2015)",
@@ -497,9 +497,9 @@
       "captured_at": "2015-03-24",
       "author": null,
       "contributor": null,
-      "id": "shreya_singhal_case",
       "community": 0,
-      "norm_label": "shreya singhal vs u.o.i (2015)"
+      "norm_label": "shreya singhal vs u.o.i (2015)",
+      "id": "shreya_singhal_case"
     },
     {
       "label": "D.K. Basu vs State of West Bengal (1996)",
@@ -510,9 +510,9 @@
       "captured_at": "1996-12-18",
       "author": null,
       "contributor": null,
-      "id": "dk_basu_case",
       "community": 0,
-      "norm_label": "d.k. basu vs state of west bengal (1996)"
+      "norm_label": "d.k. basu vs state of west bengal (1996)",
+      "id": "dk_basu_case"
     },
     {
       "label": "Vishaka & Ors vs State of Rajasthan (1997)",
@@ -523,9 +523,9 @@
       "captured_at": "1997-08-13",
       "author": null,
       "contributor": null,
-      "id": "vishaka_case",
       "community": 0,
-      "norm_label": "vishaka & ors vs state of rajasthan (1997)"
+      "norm_label": "vishaka & ors vs state of rajasthan (1997)",
+      "id": "vishaka_case"
     },
     {
       "label": "Article 21 - Right to Life and Personal Liberty",
@@ -536,9 +536,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_article_21",
       "community": 0,
-      "norm_label": "article 21 - right to life and personal liberty"
+      "norm_label": "article 21 - right to life and personal liberty",
+      "id": "readme_article_21"
     },
     {
       "label": "Section 66A IT Act",
@@ -549,9 +549,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_section_66a",
       "community": 0,
-      "norm_label": "section 66a it act"
+      "norm_label": "section 66a it act",
+      "id": "readme_section_66a"
     },
     {
       "label": "Arrest & Detention Guidelines",
@@ -562,9 +562,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_custodial_guidelines",
       "community": 0,
-      "norm_label": "arrest & detention guidelines"
+      "norm_label": "arrest & detention guidelines",
+      "id": "readme_custodial_guidelines"
     },
     {
       "label": "Workplace Sexual Harassment Guidelines",
@@ -575,9 +575,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_workplace_harassment",
       "community": 0,
-      "norm_label": "workplace sexual harassment guidelines"
+      "norm_label": "workplace sexual harassment guidelines",
+      "id": "readme_workplace_harassment"
     },
     {
       "label": "HuggingFace Embeddings (all-MiniLM-L6-v2)",
@@ -588,9 +588,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ingest_huggingface_embeddings",
       "community": 4,
-      "norm_label": "huggingface embeddings (all-minilm-l6-v2)"
+      "norm_label": "huggingface embeddings (all-minilm-l6-v2)",
+      "id": "ingest_huggingface_embeddings"
     },
     {
       "label": "CORS Middleware",
@@ -601,9 +601,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "app_cors_middleware",
       "community": 8,
-      "norm_label": "cors middleware"
+      "norm_label": "cors middleware",
+      "id": "app_cors_middleware"
     },
     {
       "label": "Next.js Dev Origins Config",
@@ -614,9 +614,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "next_config_devorigins",
       "community": 8,
-      "norm_label": "next.js dev origins config"
+      "norm_label": "next.js dev origins config",
+      "id": "next_config_devorigins"
     }
   ],
   "links": [
@@ -626,9 +626,9 @@
       "source_file": "frontend\\app\\layout.tsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_layout_tsx",
-      "target": "app_layout_rootlayout",
-      "confidence_score": 1.0
+      "target": "app_layout_rootlayout"
     },
     {
       "relation": "contains",
@@ -636,9 +636,9 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_page_tsx",
-      "target": "app_page_scaleicon",
-      "confidence_score": 1.0
+      "target": "app_page_scaleicon"
     },
     {
       "relation": "contains",
@@ -646,9 +646,9 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_page_tsx",
-      "target": "app_page_handlesend",
-      "confidence_score": 1.0
+      "target": "app_page_handlesend"
     },
     {
       "relation": "contains",
@@ -656,9 +656,9 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L137",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_page_tsx",
-      "target": "app_page_handlenewchat",
-      "confidence_score": 1.0
+      "target": "app_page_handlenewchat"
     },
     {
       "relation": "contains",
@@ -666,9 +666,9 @@
       "source_file": "src\\app.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_py",
-      "target": "src_app_questionrequest",
-      "confidence_score": 1.0
+      "target": "src_app_questionrequest"
     },
     {
       "relation": "contains",
@@ -676,9 +676,9 @@
       "source_file": "src\\app.py",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_py",
-      "target": "src_app_answerresponse",
-      "confidence_score": 1.0
+      "target": "src_app_answerresponse"
     },
     {
       "relation": "contains",
@@ -686,9 +686,9 @@
       "source_file": "src\\app.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_py",
-      "target": "src_app_root",
-      "confidence_score": 1.0
+      "target": "src_app_root"
     },
     {
       "relation": "contains",
@@ -696,9 +696,9 @@
       "source_file": "src\\app.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_py",
-      "target": "src_app_health",
-      "confidence_score": 1.0
+      "target": "src_app_health"
     },
     {
       "relation": "contains",
@@ -706,9 +706,9 @@
       "source_file": "src\\app.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_py",
-      "target": "src_app_ask_question",
-      "confidence_score": 1.0
+      "target": "src_app_ask_question"
     },
     {
       "relation": "inherits",
@@ -716,9 +716,9 @@
       "source_file": "src\\app.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_questionrequest",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -726,9 +726,9 @@
       "source_file": "src\\app.py",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_answerresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "calls",
@@ -737,9 +737,9 @@
       "source_file": "src\\app.py",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_ask_question",
-      "target": "src_app_answerresponse",
-      "confidence_score": 1.0
+      "target": "src_app_answerresponse"
     },
     {
       "relation": "contains",
@@ -747,9 +747,9 @@
       "source_file": "src\\ingest.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_ingest_py",
-      "target": "src_ingest_ingest_documents",
-      "confidence_score": 1.0
+      "target": "src_ingest_ingest_documents"
     },
     {
       "relation": "contains",
@@ -757,9 +757,9 @@
       "source_file": "src\\rag_chain.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_rag_chain_py",
-      "target": "src_rag_chain_load_rag_chain",
-      "confidence_score": 1.0
+      "target": "src_rag_chain_load_rag_chain"
     },
     {
       "relation": "references",

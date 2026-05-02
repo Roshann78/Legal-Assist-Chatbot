@@ -1,7 +1,8 @@
-# Graph Report - .  (2026-05-03)
+# Graph Report - Legal Assist Chatbot  (2026-05-03)
 
 ## Corpus Check
-- Corpus is ~3,214 words - fits in a single context window. You may not need a graph.
+- 9 files · ~3,243 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 - 50 nodes · 45 edges · 7 communities detected
@@ -9,13 +10,13 @@
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Legal Cases & Frontend UI|Legal Cases & Frontend UI]]
-- [[_COMMUNITY_RAG Chain & API Logic|RAG Chain & API Logic]]
-- [[_COMMUNITY_FastAPI App Structure|FastAPI App Structure]]
-- [[_COMMUNITY_Document Ingestion Pipeline|Document Ingestion Pipeline]]
-- [[_COMMUNITY_Cross-Origin Configuration|Cross-Origin Configuration]]
-- [[_COMMUNITY_FastAPI Server Instance|FastAPI Server Instance]]
-- [[_COMMUNITY_Root Layout Component|Root Layout Component]]
+- [[_COMMUNITY_Community 0|Community 0]]
+- [[_COMMUNITY_Community 1|Community 1]]
+- [[_COMMUNITY_Community 2|Community 2]]
+- [[_COMMUNITY_Community 4|Community 4]]
+- [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 13|Community 13]]
+- [[_COMMUNITY_Community 14|Community 14]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `load_rag_chain` - 6 edges
@@ -48,50 +49,50 @@
 
 ## Communities
 
-### Community 0 - "Legal Cases & Frontend UI"
+### Community 0 - "Community 0"
 Cohesion: 0.23
 Nodes (12): D.K. Basu vs State of West Bengal (1996), Maneka Gandhi vs Union Of India (1978), handleSend Chat Handler, LegalBuddy Chat Component, Preset Legal Questions, Article 21 - Right to Life and Personal Liberty, Arrest & Detention Guidelines, Legal Buddy Project (+4 more)
 
-### Community 1 - "RAG Chain & API Logic"
+### Community 1 - "Community 1"
 Cohesion: 0.22
 Nodes (9): AnswerResponse, ask_question Endpoint, QuestionRequest, format_docs Helper, Groq LLM (Llama-3.3-70b), Legal Expert Prompt Template, load_rag_chain, Similarity Retriever (k=5) (+1 more)
 
-### Community 2 - "FastAPI App Structure"
+### Community 2 - "Community 2"
 Cohesion: 0.38
 Nodes (4): BaseModel, AnswerResponse, ask_question(), QuestionRequest
 
-### Community 4 - "Document Ingestion Pipeline"
+### Community 4 - "Community 4"
 Cohesion: 0.67
 Nodes (4): Document Chunking Strategy, HuggingFace Embeddings (all-MiniLM-L6-v2), ingest_documents Pipeline, ChromaDB Vectorstore
 
-### Community 8 - "Cross-Origin Configuration"
+### Community 8 - "Community 8"
 Cohesion: 1.0
 Nodes (2): CORS Middleware, Next.js Dev Origins Config
 
-### Community 13 - "FastAPI Server Instance"
+### Community 13 - "Community 13"
 Cohesion: 1.0
 Nodes (1): FastAPI Server
 
-### Community 14 - "Root Layout Component"
+### Community 14 - "Community 14"
 Cohesion: 1.0
 Nodes (1): Root Layout
 
 ## Knowledge Gaps
 - **14 isolated node(s):** `FastAPI Server`, `QuestionRequest`, `AnswerResponse`, `Document Chunking Strategy`, `format_docs Helper` (+9 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Cross-Origin Configuration`** (2 nodes): `CORS Middleware`, `Next.js Dev Origins Config`
+- **Thin community `Community 8`** (2 nodes): `CORS Middleware`, `Next.js Dev Origins Config`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `FastAPI Server Instance`** (1 nodes): `FastAPI Server`
+- **Thin community `Community 13`** (1 nodes): `FastAPI Server`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Root Layout Component`** (1 nodes): `Root Layout`
+- **Thin community `Community 14`** (1 nodes): `Root Layout`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `load_rag_chain` connect `RAG Chain & API Logic` to `Document Ingestion Pipeline`?**
+- **Why does `load_rag_chain` connect `Community 1` to `Community 4`?**
   _High betweenness centrality (0.129) - this node is a cross-community bridge._
-- **Why does `Legal Buddy Project` connect `Legal Cases & Frontend UI` to `RAG Chain & API Logic`?**
+- **Why does `Legal Buddy Project` connect `Community 0` to `Community 1`?**
   _High betweenness centrality (0.092) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Maneka Gandhi vs Union Of India (1978)` (e.g. with `D.K. Basu vs State of West Bengal (1996)` and `Vishaka & Ors vs State of Rajasthan (1997)`) actually correct?**
   _`Maneka Gandhi vs Union Of India (1978)` has 2 INFERRED edges - model-reasoned connections that need verification._

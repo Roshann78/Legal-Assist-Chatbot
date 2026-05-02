@@ -32,16 +32,16 @@
     "hash": "cd8a267e7d1373aba9239125875e4ee9"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\src\\rag_chain.py": {
-    "mtime": 1776125753.7484045,
-    "hash": "f86839124a10ab8d9d14106d5f9aff1c"
+    "mtime": 1777759047.392789,
+    "hash": "b88e21c3b60440e9c6523b3a7420ad82"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\README.md": {
     "mtime": 1776125879.732046,
     "hash": "87ccdb5fd6154a2c473d44951e987194"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\requirements.txt": {
-    "mtime": 1776122303.6067436,
-    "hash": "ad01414422ca91a05bb1e06554403375"
+    "mtime": 1777758137.1999674,
+    "hash": "bf54b997729c31e464ba028b8bb46f51"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\AGENTS.md": {
     "mtime": 1776123919.0487654,
@@ -55,9 +55,85 @@
     "mtime": 1776125647.5721035,
     "hash": "f15aaa42d5d299d091b1171097ea56ad"
   },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\2023050195.pdf": {
+    "mtime": 1777755477.6219573,
+    "hash": "2cd12bc91bb3f6360075cf4eb4cfa331"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\2024091127.pdf": {
+    "mtime": 1777755655.2073405,
+    "hash": "f13bf80cf2b5bc4d1e04216e78554056"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Balram_Tiwari_vs_Riziyan_Samfil_And_Others_on_27_July_2010.PDF": {
+    "mtime": 1777754797.5428386,
+    "hash": "7b852d915d902ba971d6e87e18f4aa38"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\iea_1872.pdf": {
+    "mtime": 1777755597.8407485,
+    "hash": "9e639b5ebe22d20288651e30db77704c"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Indian-Penal-Code-1860.pdf": {
+    "mtime": 1777755563.9252958,
+    "hash": "83597c07fc1a533cad55f8d817e9e725"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Indra_Sawhney_Etc_Etc_vs_Union_Of_India_And_Others_Etc_Etc_on_16_November_1992.PDF": {
+    "mtime": 1777754742.1892648,
+    "hash": "ea9b289b09542ac56dd5c81f9a54988e"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Jayachandran_vs_The_Regional_Transport_Authority_on_6_June_2009.PDF": {
+    "mtime": 1777754873.4560409,
+    "hash": "e259783da12b8f6d8b7418bdcaaf78ae"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Justice_K_S_Puttaswamy_Retd_And_Anr_vs_Union_Of_India_And_Ors_on_24_August_2017.PDF": {
+    "mtime": 1777754827.6009328,
+    "hash": "5e024ea3a241d6b8aeacece9c1b61b23"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Kesavananda_Bharati_Sripadagalvaru_vs_State_Of_Kerala_And_Anr_on_24_April_1973.PDF": {
+    "mtime": 1777754714.7218559,
+    "hash": "a7bfa24d2b70610a705f5bce43c71e62"
+  },
   "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Maneka_Gandhi_vs_Union_Of_India_on_25_January_1978.PDF": {
     "mtime": 1776109352.4160662,
     "hash": "9dbe69bf79f3299570614c82a00841a4"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Manoj_P_vs_The_Cochin_University_Of_Science_And_on_9_September_2010.PDF": {
+    "mtime": 1777754869.8106525,
+    "hash": "6b7f17055c5f9f2ae95e0834f077566c"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Mr_Shahnawaz_Khan_vs_Department_Of_School_Education_on_11_March_2010.PDF": {
+    "mtime": 1777754947.1103542,
+    "hash": "1707570c19665fb225253392a69ca68c"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\M_C_Mehta_And_Anr_vs_Union_Of_India_Ors_on_20_December_1986.PDF": {
+    "mtime": 1777754845.070724,
+    "hash": "cef1134785aed2e875118728ad52b5d0"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Om_Prakash_Verma_vs_Union_Of_India_Thru'_Intelligence_on_3_September_2010.PDF": {
+    "mtime": 1777754876.680999,
+    "hash": "77fb316163b61737e6da63a5bfe70202"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\People'S_Union_Of_Civil_Liberties_vs_Union_Of_India_Uoi_And_Anr_on_18_December_1996.PDF": {
+    "mtime": 1777754831.2191758,
+    "hash": "8ee5a9e0675105a371930eab92d76e7a"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\protection_of_women_from_domestic_violence_act,_2005.pdf": {
+    "mtime": 1777755643.023121,
+    "hash": "7933864886d35ccd50cb72cef39652eb"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Rabendra_Singh_vs_State_Of_U_P_Others_on_13_January_2010.PDF": {
+    "mtime": 1777755013.6302304,
+    "hash": "91db13b9b9c9cf0c0bd1c5a247444870"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Rathava_vs_State_on_14_October_2008.PDF": {
+    "mtime": 1777754852.9261587,
+    "hash": "2978d26ab6ddca0d1b639e25bee5e753"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\rti_act_2005.pdf": {
+    "mtime": 1777755625.5687654,
+    "hash": "8bead8107b4e05f207ecbeceb2f7acf8"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Shantappa_vs_Jagdevi_on_24_November_2008.PDF": {
+    "mtime": 1777754781.111955,
+    "hash": "0a6343cd0f2439314b5f509ff23ca842"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Shreya_Singhal_vs_U_O_I_on_24_March_2015.PDF": {
     "mtime": 1776109397.4464967,
@@ -66,6 +142,30 @@
   "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Shri_D_K_Basu_Ashok_K_Johri_vs_State_Of_West_Bengal_State_Of_U_P_on_18_December_1996.PDF": {
     "mtime": 1776109370.1327002,
     "hash": "6f5329be734f7f86501ce5c77f9a7500"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Smt_Laxmi_Mittal_vs_Commissioner_Of_Income_Tax_on_22_March_1999.PDF": {
+    "mtime": 1777754801.824009,
+    "hash": "1b2c78c77014075ec15b77cf55136e09"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Sri_Ganesh_Coconut_Company_vs_Assistant_Commercial_Tax_Officer_Ii_on_11_April_1988.PDF": {
+    "mtime": 1777754721.569553,
+    "hash": "2e48be2d458d8ba34b24330c674b6954"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\State_Of_Assam_And_Anr_vs_R_K_Krishna_Kumar_And_Ors_Saeed_on_24_October_1997.PDF": {
+    "mtime": 1777754772.7082014,
+    "hash": "56c8d98460eb03f716421471327dd6c4"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\S_R_Bommai_vs_Union_Of_India_on_11_March_1994.PDF": {
+    "mtime": 1777754734.2699244,
+    "hash": "3b0b9b4723fc28b8827d9c9aa9dfd183"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\the_code_of_criminal_procedure,_1973.pdf": {
+    "mtime": 1777755583.1376154,
+    "hash": "5f12b1988ec56df54228ba80739c114c"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Vellore_Citizens_Welfare_Forum_vs_Union_Of_India_Ors_on_28_August_1996.PDF": {
+    "mtime": 1777754848.7193599,
+    "hash": "31e27c004b842f638749bfad6537bf31"
   },
   "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Vishaka_Ors_vs_State_Of_Rajasthan_Ors_on_13_August_1997.PDF": {
     "mtime": 1776109379.854833,

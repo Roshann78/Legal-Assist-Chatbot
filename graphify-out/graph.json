@@ -1,0 +1,1120 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "rag_pipeline_flow",
+        "label": "RAG Pipeline Flow",
+        "nodes": [
+          "ingest_ingest_documents",
+          "rag_chain_chromadb_vectorstore",
+          "rag_chain_similarity_retriever",
+          "rag_chain_groq_llm",
+          "rag_chain_load_rag_chain"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.95,
+        "source_file": "src/rag_chain.py"
+      },
+      {
+        "id": "landmark_cases_corpus",
+        "label": "Landmark Indian Supreme Court Cases",
+        "nodes": [
+          "maneka_gandhi_case",
+          "shreya_singhal_case",
+          "dk_basu_case",
+          "vishaka_case"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "README.md"
+      },
+      {
+        "id": "fullstack_api_contract",
+        "label": "Frontend-Backend API Contract",
+        "nodes": [
+          "page_handlesend",
+          "app_ask_question",
+          "app_questionrequest",
+          "app_answerresponse"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.95,
+        "source_file": "frontend/app/page.tsx"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "eslint.config.mjs",
+      "file_type": "code",
+      "source_file": "frontend\\eslint.config.mjs",
+      "source_location": "L1",
+      "id": "frontend_eslint_config_mjs",
+      "community": 9,
+      "norm_label": "eslint.config.mjs"
+    },
+    {
+      "label": "next-env.d.ts",
+      "file_type": "code",
+      "source_file": "frontend\\next-env.d.ts",
+      "source_location": "L1",
+      "id": "frontend_next_env_d_ts",
+      "community": 10,
+      "norm_label": "next-env.d.ts"
+    },
+    {
+      "label": "next.config.ts",
+      "file_type": "code",
+      "source_file": "frontend\\next.config.ts",
+      "source_location": "L1",
+      "id": "frontend_next_config_ts",
+      "community": 11,
+      "norm_label": "next.config.ts"
+    },
+    {
+      "label": "postcss.config.mjs",
+      "file_type": "code",
+      "source_file": "frontend\\postcss.config.mjs",
+      "source_location": "L1",
+      "id": "frontend_postcss_config_mjs",
+      "community": 12,
+      "norm_label": "postcss.config.mjs"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "frontend\\app\\layout.tsx",
+      "source_location": "L1",
+      "id": "frontend_app_layout_tsx",
+      "community": 5,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\layout.tsx",
+      "source_location": "L20",
+      "id": "app_layout_rootlayout",
+      "community": 5,
+      "norm_label": "rootlayout()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L1",
+      "id": "frontend_app_page_tsx",
+      "community": 3,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ScaleIcon()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L12",
+      "id": "app_page_scaleicon",
+      "community": 3,
+      "norm_label": "scaleicon()"
+    },
+    {
+      "label": "handleSend()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L90",
+      "id": "app_page_handlesend",
+      "community": 3,
+      "norm_label": "handlesend()"
+    },
+    {
+      "label": "handleNewChat()",
+      "file_type": "code",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L137",
+      "id": "app_page_handlenewchat",
+      "community": 3,
+      "norm_label": "handlenewchat()"
+    },
+    {
+      "label": "app.py",
+      "file_type": "code",
+      "source_file": "src\\app.py",
+      "source_location": "L1",
+      "id": "src_app_py",
+      "community": 2,
+      "norm_label": "app.py"
+    },
+    {
+      "label": "QuestionRequest",
+      "file_type": "code",
+      "source_file": "src\\app.py",
+      "source_location": "L26",
+      "id": "src_app_questionrequest",
+      "community": 2,
+      "norm_label": "questionrequest"
+    },
+    {
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basemodel",
+      "community": 2,
+      "norm_label": "basemodel"
+    },
+    {
+      "label": "AnswerResponse",
+      "file_type": "code",
+      "source_file": "src\\app.py",
+      "source_location": "L29",
+      "id": "src_app_answerresponse",
+      "community": 2,
+      "norm_label": "answerresponse"
+    },
+    {
+      "label": "root()",
+      "file_type": "code",
+      "source_file": "src\\app.py",
+      "source_location": "L34",
+      "id": "src_app_root",
+      "community": 2,
+      "norm_label": "root()"
+    },
+    {
+      "label": "health()",
+      "file_type": "code",
+      "source_file": "src\\app.py",
+      "source_location": "L38",
+      "id": "src_app_health",
+      "community": 2,
+      "norm_label": "health()"
+    },
+    {
+      "label": "ask_question()",
+      "file_type": "code",
+      "source_file": "src\\app.py",
+      "source_location": "L42",
+      "id": "src_app_ask_question",
+      "community": 2,
+      "norm_label": "ask_question()"
+    },
+    {
+      "label": "ingest.py",
+      "file_type": "code",
+      "source_file": "src\\ingest.py",
+      "source_location": "L1",
+      "id": "src_ingest_py",
+      "community": 6,
+      "norm_label": "ingest.py"
+    },
+    {
+      "label": "ingest_documents()",
+      "file_type": "code",
+      "source_file": "src\\ingest.py",
+      "source_location": "L10",
+      "id": "src_ingest_ingest_documents",
+      "community": 6,
+      "norm_label": "ingest_documents()"
+    },
+    {
+      "label": "rag_chain.py",
+      "file_type": "code",
+      "source_file": "src\\rag_chain.py",
+      "source_location": "L1",
+      "id": "src_rag_chain_py",
+      "community": 7,
+      "norm_label": "rag_chain.py"
+    },
+    {
+      "label": "load_rag_chain()",
+      "file_type": "code",
+      "source_file": "src\\rag_chain.py",
+      "source_location": "L12",
+      "id": "src_rag_chain_load_rag_chain",
+      "community": 7,
+      "norm_label": "load_rag_chain()"
+    },
+    {
+      "label": "Legal Buddy Project",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_legal_buddy",
+      "community": 0,
+      "norm_label": "legal buddy project"
+    },
+    {
+      "label": "RAG Architecture",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "RAG chosen to ground LLM responses in actual court documents, minimizing hallucinations for legal accuracy",
+      "id": "readme_rag_architecture",
+      "community": 1,
+      "norm_label": "rag architecture"
+    },
+    {
+      "label": "FastAPI Server",
+      "file_type": "code",
+      "source_file": "src/app.py",
+      "source_location": "line 7-11",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "app_fastapi_server",
+      "community": 13,
+      "norm_label": "fastapi server"
+    },
+    {
+      "label": "QuestionRequest",
+      "file_type": "code",
+      "source_file": "src/app.py",
+      "source_location": "line 26-27",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "app_questionrequest",
+      "community": 1,
+      "norm_label": "questionrequest"
+    },
+    {
+      "label": "AnswerResponse",
+      "file_type": "code",
+      "source_file": "src/app.py",
+      "source_location": "line 29-31",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "app_answerresponse",
+      "community": 1,
+      "norm_label": "answerresponse"
+    },
+    {
+      "label": "ask_question Endpoint",
+      "file_type": "code",
+      "source_file": "src/app.py",
+      "source_location": "line 41-47",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "app_ask_question",
+      "community": 1,
+      "norm_label": "ask_question endpoint"
+    },
+    {
+      "label": "ingest_documents Pipeline",
+      "file_type": "code",
+      "source_file": "src/ingest.py",
+      "source_location": "line 10-35",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ingest_ingest_documents",
+      "community": 4,
+      "norm_label": "ingest_documents pipeline"
+    },
+    {
+      "label": "Document Chunking Strategy",
+      "file_type": "rationale",
+      "source_file": "src/ingest.py",
+      "source_location": "line 17-20",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "chunk_size=1000 with overlap=200 balances context preservation with retrieval granularity for legal texts",
+      "id": "ingest_chunking_strategy",
+      "community": 4,
+      "norm_label": "document chunking strategy"
+    },
+    {
+      "label": "load_rag_chain",
+      "file_type": "code",
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 12-61",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "rag_chain_load_rag_chain",
+      "community": 1,
+      "norm_label": "load_rag_chain"
+    },
+    {
+      "label": "Legal Expert Prompt Template",
+      "file_type": "rationale",
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 33-46",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Prompt instructs LLM to act as Indian law expert, explicitly refusing to answer if context insufficient - prevents hallucination",
+      "id": "rag_chain_legal_prompt",
+      "community": 1,
+      "norm_label": "legal expert prompt template"
+    },
+    {
+      "label": "format_docs Helper",
+      "file_type": "code",
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 50-51",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "rag_chain_format_docs",
+      "community": 1,
+      "norm_label": "format_docs helper"
+    },
+    {
+      "label": "ChromaDB Vectorstore",
+      "file_type": "code",
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 17-20",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "rag_chain_chromadb_vectorstore",
+      "community": 4,
+      "norm_label": "chromadb vectorstore"
+    },
+    {
+      "label": "Groq LLM (Llama-3.3-70b)",
+      "file_type": "code",
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 27-31",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "rag_chain_groq_llm",
+      "community": 1,
+      "norm_label": "groq llm (llama-3.3-70b)"
+    },
+    {
+      "label": "Similarity Retriever (k=5)",
+      "file_type": "code",
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 22-25",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "rag_chain_similarity_retriever",
+      "community": 1,
+      "norm_label": "similarity retriever (k=5)"
+    },
+    {
+      "label": "LegalBuddy Chat Component",
+      "file_type": "code",
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "line 79-317",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_legalbuddy",
+      "community": 0,
+      "norm_label": "legalbuddy chat component"
+    },
+    {
+      "label": "handleSend Chat Handler",
+      "file_type": "code",
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "line 90-135",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_handlesend",
+      "community": 0,
+      "norm_label": "handlesend chat handler"
+    },
+    {
+      "label": "Preset Legal Questions",
+      "file_type": "code",
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "line 203-217",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_preset_questions",
+      "community": 0,
+      "norm_label": "preset legal questions"
+    },
+    {
+      "label": "Root Layout",
+      "file_type": "code",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "line 20-33",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "layout_root",
+      "community": 14,
+      "norm_label": "root layout"
+    },
+    {
+      "label": "Maneka Gandhi vs Union Of India (1978)",
+      "file_type": "paper",
+      "source_file": "data/Maneka_Gandhi_vs_Union_Of_India_on_25_January_1978.PDF",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "1978-01-25",
+      "author": null,
+      "contributor": null,
+      "id": "maneka_gandhi_case",
+      "community": 0,
+      "norm_label": "maneka gandhi vs union of india (1978)"
+    },
+    {
+      "label": "Shreya Singhal vs U.O.I (2015)",
+      "file_type": "paper",
+      "source_file": "data/Shreya_Singhal_vs_U_O_I_on_24_March_2015.PDF",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2015-03-24",
+      "author": null,
+      "contributor": null,
+      "id": "shreya_singhal_case",
+      "community": 0,
+      "norm_label": "shreya singhal vs u.o.i (2015)"
+    },
+    {
+      "label": "D.K. Basu vs State of West Bengal (1996)",
+      "file_type": "paper",
+      "source_file": "data/Shri_D_K_Basu_Ashok_K_Johri_vs_State_Of_West_Bengal_State_Of_U_P_on_18_December_1996.PDF",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "1996-12-18",
+      "author": null,
+      "contributor": null,
+      "id": "dk_basu_case",
+      "community": 0,
+      "norm_label": "d.k. basu vs state of west bengal (1996)"
+    },
+    {
+      "label": "Vishaka & Ors vs State of Rajasthan (1997)",
+      "file_type": "paper",
+      "source_file": "data/Vishaka_Ors_vs_State_Of_Rajasthan_Ors_on_13_August_1997.PDF",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "1997-08-13",
+      "author": null,
+      "contributor": null,
+      "id": "vishaka_case",
+      "community": 0,
+      "norm_label": "vishaka & ors vs state of rajasthan (1997)"
+    },
+    {
+      "label": "Article 21 - Right to Life and Personal Liberty",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_article_21",
+      "community": 0,
+      "norm_label": "article 21 - right to life and personal liberty"
+    },
+    {
+      "label": "Section 66A IT Act",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_section_66a",
+      "community": 0,
+      "norm_label": "section 66a it act"
+    },
+    {
+      "label": "Arrest & Detention Guidelines",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_custodial_guidelines",
+      "community": 0,
+      "norm_label": "arrest & detention guidelines"
+    },
+    {
+      "label": "Workplace Sexual Harassment Guidelines",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_workplace_harassment",
+      "community": 0,
+      "norm_label": "workplace sexual harassment guidelines"
+    },
+    {
+      "label": "HuggingFace Embeddings (all-MiniLM-L6-v2)",
+      "file_type": "code",
+      "source_file": "src/ingest.py",
+      "source_location": "line 25-27",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ingest_huggingface_embeddings",
+      "community": 4,
+      "norm_label": "huggingface embeddings (all-minilm-l6-v2)"
+    },
+    {
+      "label": "CORS Middleware",
+      "file_type": "code",
+      "source_file": "src/app.py",
+      "source_location": "line 13-19",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "app_cors_middleware",
+      "community": 8,
+      "norm_label": "cors middleware"
+    },
+    {
+      "label": "Next.js Dev Origins Config",
+      "file_type": "code",
+      "source_file": "frontend/next.config.ts",
+      "source_location": "line 3-6",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "next_config_devorigins",
+      "community": 8,
+      "norm_label": "next.js dev origins config"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\layout.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "frontend_app_layout_tsx",
+      "target": "app_layout_rootlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "frontend_app_page_tsx",
+      "target": "app_page_scaleicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "frontend_app_page_tsx",
+      "target": "app_page_handlesend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend\\app\\page.tsx",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "frontend_app_page_tsx",
+      "target": "app_page_handlenewchat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_app_py",
+      "target": "src_app_questionrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_app_py",
+      "target": "src_app_answerresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "src_app_py",
+      "target": "src_app_root",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "src_app_py",
+      "target": "src_app_health",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "src_app_py",
+      "target": "src_app_ask_question",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_app_questionrequest",
+      "target": "basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_app_answerresponse",
+      "target": "basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\app.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "src_app_ask_question",
+      "target": "src_app_answerresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingest.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_ingest_py",
+      "target": "src_ingest_ingest_documents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\rag_chain.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_rag_chain_py",
+      "target": "src_rag_chain_load_rag_chain",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_legal_buddy",
+      "target": "readme_rag_architecture"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_legal_buddy",
+      "target": "maneka_gandhi_case"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_legal_buddy",
+      "target": "shreya_singhal_case"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_legal_buddy",
+      "target": "dk_basu_case"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_legal_buddy",
+      "target": "vishaka_case"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_rag_architecture",
+      "target": "rag_chain_legal_prompt"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app.py",
+      "source_location": "line 42",
+      "weight": 1.0,
+      "source": "app_ask_question",
+      "target": "app_questionrequest"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app.py",
+      "source_location": "line 41",
+      "weight": 1.0,
+      "source": "app_ask_question",
+      "target": "app_answerresponse"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app.py",
+      "source_location": "line 23",
+      "weight": 1.0,
+      "source": "app_ask_question",
+      "target": "rag_chain_load_rag_chain"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "line 106",
+      "weight": 1.0,
+      "source": "page_handlesend",
+      "target": "app_ask_question"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/ingest.py",
+      "source_location": "line 30-34",
+      "weight": 1.0,
+      "source": "ingest_ingest_documents",
+      "target": "rag_chain_chromadb_vectorstore"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/ingest.py",
+      "source_location": "line 25-27",
+      "weight": 1.0,
+      "source": "ingest_ingest_documents",
+      "target": "ingest_huggingface_embeddings"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/ingest.py",
+      "source_location": "line 17-20",
+      "weight": 1.0,
+      "source": "ingest_chunking_strategy",
+      "target": "ingest_ingest_documents"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 17-20",
+      "weight": 1.0,
+      "source": "rag_chain_load_rag_chain",
+      "target": "rag_chain_chromadb_vectorstore"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 27-31",
+      "weight": 1.0,
+      "source": "rag_chain_load_rag_chain",
+      "target": "rag_chain_groq_llm"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 22-25",
+      "weight": 1.0,
+      "source": "rag_chain_load_rag_chain",
+      "target": "rag_chain_similarity_retriever"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 33-46",
+      "weight": 1.0,
+      "source": "rag_chain_legal_prompt",
+      "target": "rag_chain_load_rag_chain"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/rag_chain.py",
+      "source_location": "line 54",
+      "weight": 1.0,
+      "source": "rag_chain_load_rag_chain",
+      "target": "rag_chain_format_docs"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/ingest.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ingest_huggingface_embeddings",
+      "target": "rag_chain_chromadb_vectorstore"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "line 276",
+      "weight": 1.0,
+      "source": "page_legalbuddy",
+      "target": "page_handlesend"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "line 203-217",
+      "weight": 1.0,
+      "source": "page_legalbuddy",
+      "target": "page_preset_questions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "line 205",
+      "weight": 1.0,
+      "source": "page_preset_questions",
+      "target": "maneka_gandhi_case"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "line 206",
+      "weight": 1.0,
+      "source": "page_preset_questions",
+      "target": "dk_basu_case"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "line 207",
+      "weight": 1.0,
+      "source": "page_preset_questions",
+      "target": "vishaka_case"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "maneka_gandhi_case",
+      "target": "readme_article_21"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "maneka_gandhi_case",
+      "target": "dk_basu_case"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "maneka_gandhi_case",
+      "target": "vishaka_case"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "shreya_singhal_case",
+      "target": "readme_section_66a"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "dk_basu_case",
+      "target": "readme_custodial_guidelines"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "vishaka_case",
+      "target": "readme_workplace_harassment"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/app.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "app_cors_middleware",
+      "target": "next_config_devorigins"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "rag_pipeline_flow",
+      "label": "RAG Pipeline Flow",
+      "nodes": [
+        "ingest_ingest_documents",
+        "rag_chain_chromadb_vectorstore",
+        "rag_chain_similarity_retriever",
+        "rag_chain_groq_llm",
+        "rag_chain_load_rag_chain"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "src/rag_chain.py"
+    },
+    {
+      "id": "landmark_cases_corpus",
+      "label": "Landmark Indian Supreme Court Cases",
+      "nodes": [
+        "maneka_gandhi_case",
+        "shreya_singhal_case",
+        "dk_basu_case",
+        "vishaka_case"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md"
+    },
+    {
+      "id": "fullstack_api_contract",
+      "label": "Frontend-Backend API Contract",
+      "nodes": [
+        "page_handlesend",
+        "app_ask_question",
+        "app_questionrequest",
+        "app_answerresponse"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "frontend/app/page.tsx"
+    }
+  ]
+}

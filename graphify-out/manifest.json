@@ -1,0 +1,94 @@
+{
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\eslint.config.mjs": {
+    "mtime": 1776123630.194043,
+    "hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\next-env.d.ts": {
+    "mtime": 1776124076.147375,
+    "hash": "d0f8375ae1199dc7acd3977fc33b78b8"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\next.config.ts": {
+    "mtime": 1776124479.1579344,
+    "hash": "1006a83b64596d7ee8861db5728c1cbc"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\postcss.config.mjs": {
+    "mtime": 1776123630.2385051,
+    "hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\app\\layout.tsx": {
+    "mtime": 1776125896.0882635,
+    "hash": "6de5dc2d9026f0c053e255db47261966"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\app\\page.tsx": {
+    "mtime": 1776125866.346409,
+    "hash": "44fb26f13da8e1411e2f4d5cb287e8c4"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\src\\app.py": {
+    "mtime": 1776361590.517941,
+    "hash": "7604fd6dfdd70aae4525d3b0bc7cb84f"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\src\\ingest.py": {
+    "mtime": 1776122189.2004116,
+    "hash": "cd8a267e7d1373aba9239125875e4ee9"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\src\\rag_chain.py": {
+    "mtime": 1776125753.7484045,
+    "hash": "f86839124a10ab8d9d14106d5f9aff1c"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\README.md": {
+    "mtime": 1776125879.732046,
+    "hash": "87ccdb5fd6154a2c473d44951e987194"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\requirements.txt": {
+    "mtime": 1776122303.6067436,
+    "hash": "ad01414422ca91a05bb1e06554403375"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\AGENTS.md": {
+    "mtime": 1776123919.0487654,
+    "hash": "9e09241799026ac05be315a2f0b50055"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\CLAUDE.md": {
+    "mtime": 1776123919.0487654,
+    "hash": "5c27369b226fcf2be8a6cfe52224e767"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\README.md": {
+    "mtime": 1776125647.5721035,
+    "hash": "f15aaa42d5d299d091b1171097ea56ad"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Maneka_Gandhi_vs_Union_Of_India_on_25_January_1978.PDF": {
+    "mtime": 1776109352.4160662,
+    "hash": "9dbe69bf79f3299570614c82a00841a4"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Shreya_Singhal_vs_U_O_I_on_24_March_2015.PDF": {
+    "mtime": 1776109397.4464967,
+    "hash": "9fc757c20bc9c9530b6cce0b6a4fbcb4"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Shri_D_K_Basu_Ashok_K_Johri_vs_State_Of_West_Bengal_State_Of_U_P_on_18_December_1996.PDF": {
+    "mtime": 1776109370.1327002,
+    "hash": "6f5329be734f7f86501ce5c77f9a7500"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\data\\Vishaka_Ors_vs_State_Of_Rajasthan_Ors_on_13_August_1997.PDF": {
+    "mtime": 1776109379.854833,
+    "hash": "92a53bb4f5b37eb1330615f9c4c57e66"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\public\\file.svg": {
+    "mtime": 1776123630.250639,
+    "hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\public\\globe.svg": {
+    "mtime": 1776123630.269739,
+    "hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\public\\next.svg": {
+    "mtime": 1776123630.3005097,
+    "hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\public\\vercel.svg": {
+    "mtime": 1776123630.318575,
+    "hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  },
+  "E:\\Random-Projects\\Legal Assist Chatbot\\frontend\\public\\window.svg": {
+    "mtime": 1776123630.3352618,
+    "hash": "a2760511c65806022ad20adf74370ff3"
+  }
+}

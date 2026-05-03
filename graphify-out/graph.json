@@ -780,9 +780,9 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_page_tsx",
-      "target": "app_page_scrolltotop",
-      "confidence_score": 1.0
+      "target": "app_page_scrolltotop"
     },
     {
       "relation": "contains",
@@ -790,9 +790,9 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_page_tsx",
-      "target": "app_page_handlenavclick",
-      "confidence_score": 1.0
+      "target": "app_page_handlenavclick"
     },
     {
       "relation": "contains",
@@ -800,9 +800,9 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_page_tsx",
-      "target": "app_page_handlesendmessage",
-      "confidence_score": 1.0
+      "target": "app_page_handlesendmessage"
     },
     {
       "relation": "contains",
@@ -810,9 +810,9 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_page_tsx",
-      "target": "app_page_handlecompare",
-      "confidence_score": 1.0
+      "target": "app_page_handlecompare"
     },
     {
       "relation": "contains",
@@ -820,9 +820,9 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_page_tsx",
-      "target": "app_page_handlefileupload",
-      "confidence_score": 1.0
+      "target": "app_page_handlefileupload"
     },
     {
       "relation": "contains",
@@ -830,9 +830,9 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_page_tsx",
-      "target": "app_page_getfeatureconfig",
-      "confidence_score": 1.0
+      "target": "app_page_getfeatureconfig"
     },
     {
       "relation": "contains",
@@ -871,9 +871,9 @@
       "source_file": "frontend\\app\\page.tsx",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_page_handlenavclick",
-      "target": "app_page_scrolltotop",
-      "confidence_score": 1.0
+      "target": "app_page_scrolltotop"
     },
     {
       "relation": "contains",
@@ -881,9 +881,9 @@
       "source_file": "frontend\\components\\FeaturesSection.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_featuressection_tsx",
-      "target": "components_featuressection_featurecard",
-      "confidence_score": 1.0
+      "target": "components_featuressection_featurecard"
     },
     {
       "relation": "contains",
@@ -891,9 +891,9 @@
       "source_file": "frontend\\components\\HowItWorks.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_howitworks_tsx",
-      "target": "components_howitworks_step",
-      "confidence_score": 1.0
+      "target": "components_howitworks_step"
     },
     {
       "relation": "contains",
@@ -901,9 +901,9 @@
       "source_file": "frontend\\components\\HowItWorks.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_howitworks_tsx",
-      "target": "components_howitworks_howitworks",
-      "confidence_score": 1.0
+      "target": "components_howitworks_howitworks"
     },
     {
       "relation": "contains",
@@ -931,9 +931,9 @@
       "source_file": "src\\app.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_py",
-      "target": "src_app_compareresponse",
-      "confidence_score": 1.0
+      "target": "src_app_compareresponse"
     },
     {
       "relation": "contains",
@@ -971,9 +971,9 @@
       "source_file": "src\\app.py",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_py",
-      "target": "src_app_compare_answers",
-      "confidence_score": 1.0
+      "target": "src_app_compare_answers"
     },
     {
       "relation": "inherits",
@@ -1001,9 +1001,9 @@
       "source_file": "src\\app.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_compareresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "calls",
@@ -1023,9 +1023,9 @@
       "source_file": "src\\app.py",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_compare_answers",
-      "target": "src_app_compareresponse",
-      "confidence_score": 1.0
+      "target": "src_app_compareresponse"
     },
     {
       "relation": "contains",

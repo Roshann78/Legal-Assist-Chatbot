@@ -1,7 +1,7 @@
 # Graph Report - Legal Assist Chatbot  (2026-05-03)
 
 ## Corpus Check
-- 14 files · ~1,434,031 words
+- 14 files · ~5,003 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary

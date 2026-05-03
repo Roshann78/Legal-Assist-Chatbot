@@ -80,6 +80,7 @@ def compare_answers(request: QuestionRequest):
         rag_answer = rag_future.result()
         base_answer = base_future.result()
     
+    
     return CompareResponse(
         question=question,
         rag_answer=rag_answer,

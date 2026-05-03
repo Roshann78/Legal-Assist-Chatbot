@@ -1,10 +1,37 @@
 # LegalAssist AI
 
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Roshann78.Legal-Assist-Chatbot)
+![Forks](https://img.shields.io/github/forks/Roshann78/Legal-Assist-Chatbot?style=flat-square)
+![Stars](https://img.shields.io/github/stars/Roshann78/Legal-Assist-Chatbot?style=flat-square)
+![Issues](https://img.shields.io/github/issues/Roshann78/Legal-Assist-Chatbot?style=flat-square)
+![License](https://img.shields.io/github/license/Roshann78/Legal-Assist-Chatbot?style=flat-square)
+
 An AI-powered legal and banking assistant for India built on Retrieval Augmented Generation (RAG). Provides accurate, document-grounded answers to legal and banking queries without hallucination.
 
 ## Overview
 
-LegalAssist AI is a specialized query system designed to provide contextually accurate information regarding Indian law and banking regulations. By employing Retrieval Augmented Generation (RAG), the system grounds its responses in verified source documents rather than relying solely on the pre-training data of a large language model. This approach minimizes hallucinations and provides users with factual, source-backed answers to complex legal and financial questions.
+LegalAssist AI is a specialized query system designed to provide contextually accurate information regarding Indian law and banking regulations. By employing Retrieval Augmented Generation (RAG), the system grounds its responses in verified source documents rather than relying solely on the pre-training data of a large language model. This approach minimizes hallucinations and provides users with factual, source-backed answers to complex legal and financial questions. The application addresses the critical need for reliable, domain-specific information retrieval in sectors where accuracy is paramount.
+
+## Architecture
+
+The system follows a standard RAG pipeline, separating document ingestion from query execution.
+
+```mermaid
+graph TD
+    A[PDF Documents] --> B[PyPDF Loader]
+    B --> C[Text Splitter]
+    C --> D[Embedding Model]
+    D --> E[(ChromaDB Vector Store)]
+    
+    F[User Query] --> G[Embedding Model]
+    G --> H[Similarity Search]
+    E --> H
+    H --> I[Retrieved Context]
+    I --> J[Prompt Template]
+    F --> J
+    J --> K[LLM - Llama 3.3]
+    K --> L[Grounded Answer]
+```
 
 ## Features
 
@@ -98,11 +125,11 @@ LegalAssist-AI/
 
 ## How RAG Works
 
-During the ingestion phase, source PDF documents are processed, split into manageable text chunks, and converted into mathematical representations called embeddings. These embeddings are then stored in a specialized vector database, creating a searchable semantic index of the entire knowledge base.
+During the ingestion phase, source PDF documents are processed, split into manageable text chunks, and converted into mathematical representations called embeddings. These embeddings are then stored in a specialized vector database, creating a searchable semantic index of the entire knowledge base. The chunking process utilizes the RecursiveCharacterTextSplitter to maintain paragraph cohesion while respecting token limits.
 
-When a user submits a query, the system converts the question into an embedding using the same model. It then performs a similarity search against the vector database to retrieve the text chunks most relevant to the user's question, ensuring the context is highly specific to the query.
+When a user submits a query, the system converts the question into an embedding using the identical sentence-transformer model. It then performs a cosine similarity search against the vector database to retrieve the text chunks most relevant to the user's question. This retrieval step ensures the subsequent generation phase is strictly limited to the factual boundaries of the retrieved data.
 
-The retrieved text chunks are combined with the original query and sent to the language model. By providing the model with explicit, verified context, it generates an answer based strictly on the provided documents rather than relying on its internal, potentially outdated or inaccurate training data, thereby significantly reducing hallucinations.
+The retrieved text chunks are combined with the original query and injected into a strict prompt template. By providing the large language model with explicit, verified context, it generates an answer based strictly on the provided documents. This architecture prevents the model from relying on its internal pre-training data, thereby significantly reducing hallucinations and ensuring domain accuracy.
 
 ## Limitations
 

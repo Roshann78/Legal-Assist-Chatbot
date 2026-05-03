@@ -1,8 +1,0 @@
-venv/
-graphify-out/
-node_modules/
-chroma_db/
-.agents/
-__pycache__/
-*.pyc
-error.log

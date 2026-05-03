@@ -1,0 +1,278 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "app.py",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L1",
+      "id": "app_py",
+      "community": 0,
+      "norm_label": "app.py"
+    },
+    {
+      "label": "QuestionRequest",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L35",
+      "id": "src_app_questionrequest",
+      "community": 1,
+      "norm_label": "questionrequest"
+    },
+    {
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basemodel",
+      "community": 1,
+      "norm_label": "basemodel"
+    },
+    {
+      "label": "AnswerResponse",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L38",
+      "id": "src_app_answerresponse",
+      "community": 0,
+      "norm_label": "answerresponse"
+    },
+    {
+      "label": "CompareResponse",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L42",
+      "id": "src_app_compareresponse",
+      "community": 1,
+      "norm_label": "compareresponse"
+    },
+    {
+      "label": "root()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L48",
+      "id": "src_app_root",
+      "community": 0,
+      "norm_label": "root()"
+    },
+    {
+      "label": "health()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L52",
+      "id": "src_app_health",
+      "community": 0,
+      "norm_label": "health()"
+    },
+    {
+      "label": "ask_question()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L56",
+      "id": "src_app_ask_question",
+      "community": 0,
+      "norm_label": "ask_question()"
+    },
+    {
+      "label": "compare_answers()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L64",
+      "id": "src_app_compare_answers",
+      "community": 1,
+      "norm_label": "compare_answers()"
+    },
+    {
+      "label": "ingest.py",
+      "file_type": "code",
+      "source_file": "ingest.py",
+      "source_location": "L1",
+      "id": "ingest_py",
+      "community": 2,
+      "norm_label": "ingest.py"
+    },
+    {
+      "label": "ingest_documents()",
+      "file_type": "code",
+      "source_file": "ingest.py",
+      "source_location": "L10",
+      "id": "src_ingest_ingest_documents",
+      "community": 2,
+      "norm_label": "ingest_documents()"
+    },
+    {
+      "label": "rag_chain.py",
+      "file_type": "code",
+      "source_file": "rag_chain.py",
+      "source_location": "L1",
+      "id": "rag_chain_py",
+      "community": 3,
+      "norm_label": "rag_chain.py"
+    },
+    {
+      "label": "load_rag_chain()",
+      "file_type": "code",
+      "source_file": "rag_chain.py",
+      "source_location": "L12",
+      "id": "src_rag_chain_load_rag_chain",
+      "community": 3,
+      "norm_label": "load_rag_chain()"
+    },
+    {
+      "label": "temp_trigger.py",
+      "file_type": "code",
+      "source_file": "temp_trigger.py",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "temp_trigger.py",
+      "id": "temp_trigger_py"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_py",
+      "target": "src_app_questionrequest"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_py",
+      "target": "src_app_answerresponse"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_py",
+      "target": "src_app_compareresponse"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_py",
+      "target": "src_app_root"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_py",
+      "target": "src_app_health"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_py",
+      "target": "src_app_ask_question"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_py",
+      "target": "src_app_compare_answers"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_questionrequest",
+      "target": "basemodel"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_answerresponse",
+      "target": "basemodel"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_compareresponse",
+      "target": "basemodel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_ask_question",
+      "target": "src_app_answerresponse"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_compare_answers",
+      "target": "src_app_compareresponse"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_py",
+      "target": "src_ingest_ingest_documents"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rag_chain.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rag_chain_py",
+      "target": "src_rag_chain_load_rag_chain"
+    }
+  ],
+  "hyperedges": []
+}

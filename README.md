@@ -1,144 +1,207 @@
-# LegalAssist AI
+<div align="center">
 
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Roshann78.Legal-Assist-Chatbot)
-![Forks](https://img.shields.io/github/forks/Roshann78/Legal-Assist-Chatbot?style=flat-square)
-![Stars](https://img.shields.io/github/stars/Roshann78/Legal-Assist-Chatbot?style=flat-square)
-![Issues](https://img.shields.io/github/issues/Roshann78/Legal-Assist-Chatbot?style=flat-square)
-![License](https://img.shields.io/github/license/Roshann78/Legal-Assist-Chatbot?style=flat-square)
+# ⚖️ LegalAssist AI 🏦
 
-An AI-powered legal and banking assistant for India built on Retrieval Augmented Generation (RAG). Provides accurate, document-grounded answers to legal and banking queries without hallucination.
+**Your intelligent, document-grounded legal and banking assistant for India!**
 
-## Overview
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Roshann78.Legal-Assist-Chatbot&color=blue)
+![Forks](https://img.shields.io/github/forks/Roshann78/Legal-Assist-Chatbot?style=flat-square&color=orange)
+![Stars](https://img.shields.io/github/stars/Roshann78/Legal-Assist-Chatbot?style=flat-square&color=yellow)
+![Issues](https://img.shields.io/github/issues/Roshann78/Legal-Assist-Chatbot?style=flat-square&color=red)
+![License](https://img.shields.io/github/license/Roshann78/Legal-Assist-Chatbot?style=flat-square&color=green)
 
-LegalAssist AI is a specialized query system designed to provide contextually accurate information regarding Indian law and banking regulations. By employing Retrieval Augmented Generation (RAG), the system grounds its responses in verified source documents rather than relying solely on the pre-training data of a large language model. This approach minimizes hallucinations and provides users with factual, source-backed answers to complex legal and financial questions. The application addresses the critical need for reliable, domain-specific information retrieval in sectors where accuracy is paramount.
+[Features](#-features) • [Tech Stack](#%EF%B8%8F-tech-stack) • [Knowledge Base](#-knowledge-base) • [Setup](#-setup)
 
-## Architecture
+</div>
 
-The system follows a standard RAG pipeline, separating document ingestion from query execution.
+---
+
+## 🌟 Overview
+
+Welcome to **LegalAssist AI**! 🚀 Navigating Indian law and banking regulations can be overwhelming, but it doesn't have to be. We built this specialized query system to provide you with **contextually accurate, highly reliable** information. 
+
+By leveraging **Retrieval Augmented Generation (RAG)**, LegalAssist AI grounds its responses in verified source documents rather than guessing or relying on outdated LLM memory. This means **zero hallucinations** and 100% factual, source-backed answers to your complex legal and financial questions. 💡
+
+---
+
+## 🏗️ Architecture Workflow
+
+Here's a behind-the-scenes look at how the magic happens:
 
 ```mermaid
 graph TD
-    A[PDF Documents] --> B[PyPDF Loader]
-    B --> C[Text Splitter]
-    C --> D[Embedding Model]
-    D --> E[(ChromaDB Vector Store)]
+    %% Styling
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef highlight fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
+    classDef db fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px;
+
+    A[📄 PDF Documents] -->|PyPDF| B[✂️ Text Splitter]
+    B --> C[🧠 Embedding Model]
+    C --> D[(🗄️ ChromaDB)]:::db
     
-    F[User Query] --> G[Embedding Model]
-    G --> H[Similarity Search]
-    E --> H
-    H --> I[Retrieved Context]
-    I --> J[Prompt Template]
-    F --> J
-    J --> K[LLM - Llama 3.3]
-    K --> L[Grounded Answer]
+    F[👤 User Query] -->|Input| G[🧠 Embedding Model]
+    G --> H[🔍 Similarity Search]
+    D -.->|Retrieved Data| H
+    H --> I[📑 Context]
+    I --> J[📝 Prompt Template]
+    F -->|Raw Query| J
+    J --> K[🤖 LLM Llama 3.3]:::highlight
+    K --> L[✨ Grounded Answer]
 ```
 
-## Features
+---
 
-| Feature | Description | Status |
-|---|---|---|
-| Legal Assistant | Query SC judgments, IPC, CrPC, Constitution | Live |
-| Banking Assistant | RBI guidelines, PMJDY, KYC, rural banking | Live |
-| Document Chat | Upload any PDF and ask questions about it | Live |
-| RAG vs AI Comparison | Side by side RAG vs base Llama answers | Live |
+## ✨ Features
 
-## Tech Stack
+What can LegalAssist AI do for you? Let's take a look:
 
-| Layer | Technology |
-|---|---|
-| LLM | Llama 3.3 70B via Groq API |
-| RAG Framework | LangChain |
-| Vector Database | ChromaDB |
-| Embeddings | sentence-transformers/all-MiniLM-L6-v2 |
-| Backend | FastAPI (Python 3.12) |
-| Frontend | Next.js 15, Tailwind CSS |
-| Document Processing | PyPDF |
+| 🚀 Feature | 📖 Description | 🟢 Status |
+| :--- | :--- | :---: |
+| **⚖️ Legal Assistant** | Query SC judgments, IPC, CrPC, and the Constitution with ease. | Live |
+| **🏦 Banking Assistant**| Decode RBI guidelines, PMJDY, KYC, and rural banking policies. | Live |
+| **📄 Document Chat** | Upload *any* PDF document and chat with it instantly! | Live |
+| **⚔️ RAG vs Base AI** | See the difference! Side-by-side comparison of RAG vs standard LLM. | Live |
 
-## Knowledge Base
+---
 
-### Legal Knowledge Base
+## 🛠️ Tech Stack
 
-- 29 source documents
-- 11,694 vectors indexed
-- Covers: Supreme Court judgments, Constitution of India, IPC, CrPC, Indian Evidence Act, RTI Act, Domestic Violence Act
-- Key cases: DK Basu, Vishaka, Maneka Gandhi, Kesavananda Bharati, Shreya Singhal, KS Puttaswamy, SR Bommai, Bachan Singh and 20+ more
+We used the best tools in the ecosystem to build this powerhouse:
 
-### Banking Knowledge Base
+- **🧠 LLM:** Llama 3.3 70B *(via Groq API for blazing fast inference)*
+- **🔗 RAG Framework:** LangChain
+- **🗄️ Vector Database:** ChromaDB
+- **🔤 Embeddings:** `sentence-transformers/all-MiniLM-L6-v2`
+- **⚙️ Backend:** FastAPI (Python 3.12)
+- **🎨 Frontend:** Next.js 15 & Tailwind CSS
+- **📄 Parsing:** PyPDF
 
-- 11 source documents
-- 1,403 vectors indexed
-- Covers: PMJDY guidelines, RBI Banking Ombudsman Scheme, KYC guidelines, Fair Practices Code, Banking Regulation Act 1949
+---
 
-## Project Structure
+## 📚 The Knowledge Base
+
+Our system is packed with verified, high-quality data.
+
+### ⚖️ Legal Knowledge Base
+> **29 Source Documents | 11,694 Vectors Indexed**
+- **Covers:** Supreme Court judgments, Constitution of India, IPC, CrPC, Indian Evidence Act, RTI Act, Domestic Violence Act.
+- **Key Cases Included:** *DK Basu, Vishaka, Maneka Gandhi, Kesavananda Bharati, Shreya Singhal, KS Puttaswamy, SR Bommai, Bachan Singh,* and 20+ more!
+
+### 🏦 Banking Knowledge Base
+> **11 Source Documents | 1,403 Vectors Indexed**
+- **Covers:** PMJDY guidelines, RBI Banking Ombudsman Scheme, KYC guidelines, Fair Practices Code, and the Banking Regulation Act 1949.
+
+---
+
+## 📂 Project Structure
 
 ```text
 LegalAssist-AI/
-├── data/                    # Legal PDF documents (29 files)
-├── data_banking/            # Banking PDF documents (11 files)
-├── notebooks/               # Jupyter notebooks for RAG 
-│                              experimentation and testing
-├── src/
-│   ├── app.py               # FastAPI backend, all endpoints
-│   ├── rag_chain.py         # Legal RAG chain
+├── 📁 data/                    # Legal PDFs (29 files)
+├── 📁 data_banking/            # Banking PDFs (11 files)
+├── 📁 notebooks/               # Jupyter notebooks for testing
+├── 📁 src/                     # Python Backend
+│   ├── app.py               # FastAPI backend & endpoints
+│   ├── rag_chain.py         # Legal RAG chain logic
 │   ├── ingest.py            # Legal document ingestion
 │   └── ingest_banking.py    # Banking document ingestion
-├── frontend/                # Next.js frontend application
-├── chroma_db/               # Legal vector store (generated)
-├── chroma_db_banking/       # Banking vector store (generated)
-├── .env                     # Environment variables (not committed)
-├── requirements.txt         # Python dependencies
-└── README.md
+├── 📁 frontend/                # Next.js Application
+├── 🗄️ chroma_db/               # Legal vector store 
+├── 🗄️ chroma_db_banking/       # Banking vector store
+├── ⚙️ .env                     # Secrets (Not committed)
+├── 📦 requirements.txt         # Dependencies
+└── 📄 README.md
 ```
 
-## API Endpoints
+---
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | /ask | Legal RAG query |
-| POST | /ask-banking | Banking RAG query |
-| POST | /ask-document | Query uploaded PDF |
-| POST | /upload-document | Upload a PDF for chat |
-| POST | /compare | RAG vs base Llama comparison |
-| GET | /health | Health check |
-| GET | /docs | Interactive API documentation |
+## 🔌 API Endpoints
 
-## Setup
+Our FastAPI backend provides several clean, easy-to-use endpoints:
+
+| Method | Endpoint | What it does |
+|:---:|:---|:---|
+| `POST` | `/ask` | Queries the **Legal** RAG chain |
+| `POST` | `/ask-banking` | Queries the **Banking** RAG chain |
+| `POST` | `/upload-document`| Uploads a PDF and creates a session |
+| `POST` | `/ask-document` | Chats with your uploaded PDF |
+| `POST` | `/compare` | Side-by-side RAG vs Base Llama output |
+| `GET`  | `/health` | Server health check |
+| `GET`  | `/docs` | Interactive Swagger API documentation |
+
+---
+
+## 🚀 Setup & Installation
+
+Ready to run this locally? Follow these simple steps!
 
 ### Prerequisites
+- 🐍 **Python 3.12+**
+- 🟩 **Node.js 18+**
+- 🔑 **Groq API Key** (Get it free at [console.groq.com](https://console.groq.com))
 
-- Python 3.12
-- Node.js 18+
-- Groq API key (free at console.groq.com)
+### Quick Start Guide
 
-### Installation
+**1. Clone the repo**
+```bash
+git clone https://github.com/Roshann78/Legal-Assist-Chatbot.git
+cd Legal-Assist-Chatbot
+```
 
-1. Clone the repository
-2. Create virtual environment: python -m venv venv
-3. Activate on Windows: venv\Scripts\activate
-4. Install Python dependencies: pip install -r requirements.txt
-5. Create .env file and add: GROQ_API_KEY=your_key_here
-6. Ingest legal documents: python src/ingest.py
-7. Ingest banking documents: python src/ingest_banking.py
-8. Start backend: cd src && uvicorn app:app --reload
-9. In a new terminal start frontend: cd frontend && npm run dev
-10. Open http://localhost:3000
+**2. Setup Python Environment**
+```bash
+python -m venv venv
+venv\Scripts\activate   # On Windows
+```
 
-## How RAG Works
+**3. Install Dependencies & Add Keys**
+```bash
+pip install -r requirements.txt
+# Create a .env file in the root and add:
+# GROQ_API_KEY=your_super_secret_key_here
+```
 
-During the ingestion phase, source PDF documents are processed, split into manageable text chunks, and converted into mathematical representations called embeddings. These embeddings are then stored in a specialized vector database, creating a searchable semantic index of the entire knowledge base. The chunking process utilizes the RecursiveCharacterTextSplitter to maintain paragraph cohesion while respecting token limits.
+**4. Ingest the Data**
+```bash
+python src/ingest.py           # Process legal docs
+python src/ingest_banking.py   # Process banking docs
+```
 
-When a user submits a query, the system converts the question into an embedding using the identical sentence-transformer model. It then performs a cosine similarity search against the vector database to retrieve the text chunks most relevant to the user's question. This retrieval step ensures the subsequent generation phase is strictly limited to the factual boundaries of the retrieved data.
+**5. Fire up the Backend! 🔥**
+```bash
+cd src
+uvicorn app:app --reload
+```
 
-The retrieved text chunks are combined with the original query and injected into a strict prompt template. By providing the large language model with explicit, verified context, it generates an answer based strictly on the provided documents. This architecture prevents the model from relying on its internal pre-training data, thereby significantly reducing hallucinations and ensuring domain accuracy.
+**6. Launch the Frontend! 💻**
+```bash
+# Open a new terminal window
+cd frontend
+npm run dev
+```
+🎉 Now open [http://localhost:3000](http://localhost:3000) and enjoy!
 
-## Limitations
+---
 
-- Answers are limited to documents in the knowledge base
-- Scanned PDFs without selectable text cannot be ingested
-- Not a substitute for professional legal or financial advice
-- Session-based document chat does not persist after server restart
-- Banking knowledge base is currently limited to 11 documents
+## 🧠 How RAG Works (The Magic)
 
-## Disclaimer
+Curious about how it works? 
 
-This project is for educational and informational purposes only. It does not constitute legal or financial advice. Always consult a qualified professional for legal matters or financial decisions.
+1. **Ingestion:** We take massive PDFs, chop them into smaller "chunks," and convert them into math vectors using an embedding model. These are stored in ChromaDB.
+2. **Retrieval:** When you ask a question, we convert your question into a vector too! We find the chunks of text that match your question best using a similarity search.
+3. **Generation:** We send your original question *plus* those highly relevant text chunks to our powerful Llama 3.3 model. The model reads the context and gives you a perfect, grounded answer. No guessing allowed! 🛑
+
+---
+
+## ⚠️ Limitations & Disclaimer
+
+- 📌 **Scope:** Answers are strictly limited to the documents in our current knowledge base.
+- 🖨️ **PDF Quality:** Scanned, image-only PDFs cannot currently be processed.
+- 🔄 **Sessions:** Document chat sessions are temporary and clear on server restart.
+
+> **⚖️ DISCLAIMER:** This project is for educational and informational purposes only! It is **not** a substitute for professional legal or financial advice. Always consult a qualified professional before making serious decisions.
+
+---
+<div align="center">
+Made with ❤️ for the Indian Legal & Banking ecosystem.
+</div>

@@ -22,6 +22,8 @@ export default function Home() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
   const [compareResults, setCompareResults] = useState<{ rag: string; base: string } | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -41,6 +43,7 @@ export default function Home() {
       setInput("");
       setCompareResults(null);
       setUploadedFile(null);
+      setSessionId(null);
       scrollToTop();
     }
   };
@@ -65,7 +68,7 @@ export default function Home() {
       if (activeSection === "banking") endpoint = "http://127.0.0.1:8000/ask-banking";
       if (activeSection === "document") {
         endpoint = "http://127.0.0.1:8000/ask-document";
-        payload.filename = uploadedFile?.name || "document.pdf";
+        payload.session_id = sessionId;
       }
 
       const response = await fetch(endpoint, {
@@ -114,10 +117,37 @@ export default function Home() {
     }
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file && file.type === "application/pdf") {
       setUploadedFile(file);
+      setIsUploading(true);
+
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const response = await fetch("http://127.0.0.1:8000/upload-document", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+        console.log("Upload response:", data);
+        console.log("Session ID:", data.session_id);
+
+        if (data.session_id) {
+          setSessionId(data.session_id);
+        } else {
+          console.error("No session_id in response", data);
+          setUploadedFile(null);
+        }
+      } catch (error) {
+        console.error("Upload error:", error);
+        setUploadedFile(null);
+      } finally {
+        setIsUploading(false);
+      }
     }
   };
 
@@ -223,16 +253,20 @@ export default function Home() {
               <div className="mb-8">
                 <label className="border-2 border-dashed border-gray-border rounded-[8px] p-12 bg-gray-light flex flex-col items-center justify-center cursor-pointer hover:border-navy transition-colors">
                   <input type="file" accept=".pdf" className="hidden" onChange={handleFileUpload} />
-                  <span className="text-[14px] text-gray-text">Click to upload or drag and drop your PDF</span>
+                  <span className="text-[14px] text-gray-text">
+                    {isUploading ? "Uploading and processing PDF..." : "Click to upload or drag and drop your PDF"}
+                  </span>
                 </label>
               </div>
             )}
 
             {activeSection === "document" && uploadedFile && (
               <div className="mb-6 p-4 border border-gray-border rounded-[4px] bg-success/10 flex items-center gap-3">
-                <span className="text-success">✔</span>
-                <span className="text-[14px] font-medium text-charcoal">{uploadedFile.name}</span>
-                <button onClick={() => setUploadedFile(null)} className="ml-auto text-[12px] text-gray-text hover:text-navy">Change</button>
+                <span className="text-success">{isUploading ? "⏳" : "✔"}</span>
+                <span className="text-[14px] font-medium text-charcoal">
+                  {uploadedFile.name} {isUploading ? "(Processing...)" : ""}
+                </span>
+                <button onClick={() => { setUploadedFile(null); setSessionId(null); }} className="ml-auto text-[12px] text-gray-text hover:text-navy">Change</button>
               </div>
             )}
 
@@ -267,11 +301,11 @@ export default function Home() {
                 onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
                 placeholder="Type your message here..."
                 className="flex-1 border border-gray-border rounded-[4px] px-4 py-3 text-[15px]"
-                disabled={isLoading || (activeSection === "document" && !uploadedFile)}
+                disabled={isLoading || (activeSection === "document" && (!uploadedFile || !sessionId || isUploading))}
               />
               <button 
                 onClick={handleSendMessage}
-                disabled={isLoading || (activeSection === "document" && !uploadedFile)}
+                disabled={isLoading || (activeSection === "document" && (!uploadedFile || !sessionId || isUploading))}
                 className="bg-navy text-white px-8 py-3 rounded-[4px] font-semibold disabled:opacity-50"
               >
                 {isLoading ? "Thinking..." : "Send"}

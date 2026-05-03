@@ -1,7 +1,8 @@
 import os
 import asyncio
+import tempfile
 from concurrent.futures import ThreadPoolExecutor
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from langchain_groq import ChatGroq
@@ -25,6 +26,8 @@ app.add_middleware(
 print("Loading RAG chain...")
 chain = load_rag_chain()
 print("RAG chain loaded and ready!")
+
+document_sessions = {}
 
 base_llm = ChatGroq(
     model="llama-3.3-70b-versatile",
@@ -86,3 +89,120 @@ def compare_answers(request: QuestionRequest):
         rag_answer=rag_answer,
         base_answer=base_answer
     )
+
+class DocumentQuestionRequest(BaseModel):
+    session_id: str
+    question: str
+
+@app.post("/upload-document")
+async def upload_document(file: UploadFile = File(...)):
+    if not file.filename.endswith('.pdf'):
+        return {"error": "Only PDF files are supported"}
+
+    with tempfile.NamedTemporaryFile(delete=False,
+                                     suffix='.pdf') as tmp:
+        content = await file.read()
+        tmp.write(content)
+        tmp_path = tmp.name
+
+    from langchain_community.document_loaders import PyPDFLoader
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
+    from langchain_chroma import Chroma
+    import uuid
+
+    loader = PyPDFLoader(tmp_path)
+    documents = loader.load()
+
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=200
+    )
+    chunks = splitter.split_documents(documents)
+
+    session_id = str(uuid.uuid4())
+
+    from langchain_huggingface import HuggingFaceEmbeddings
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    )
+
+    vectorstore = Chroma.from_documents(
+        documents=chunks,
+        embedding=embeddings,
+        collection_name=f"session_{session_id}"
+    )
+
+    document_sessions[session_id] = vectorstore
+
+    os.unlink(tmp_path)
+
+    return {
+        "session_id": session_id,
+        "filename": file.filename,
+        "pages": len(documents),
+        "chunks": len(chunks),
+        "message": "Document uploaded successfully"
+    }
+
+@app.post("/ask-document")
+def ask_document(request: DocumentQuestionRequest):
+    if request.session_id not in document_sessions:
+        return {"error": "Session not found. Please upload a document first."}
+
+    vectorstore = document_sessions[request.session_id]
+
+    retriever = vectorstore.as_retriever(
+        search_type="similarity",
+        search_kwargs={"k": 5}
+    )
+
+    llm = ChatGroq(
+        model="llama-3.3-70b-versatile",
+        temperature=0,
+        groq_api_key=os.getenv("GROQ_API_KEY")
+    )
+
+    template = """
+You are an expert assistant helping users understand documents they have uploaded.
+
+Use ONLY the following context from the uploaded document to answer the question. Be specific and clear.
+
+FORMATTING RULES:
+- Break answer into clear paragraphs or numbered points
+- Bold important terms or section references
+- Never write one long paragraph
+- If the answer is not in the document say "This information is not found in the uploaded document."
+
+Context:
+{context}
+
+Question: {question}
+
+Answer:
+"""
+
+    from langchain_core.prompts import ChatPromptTemplate
+    from langchain_core.runnables import RunnablePassthrough
+    from langchain_core.output_parsers import StrOutputParser
+
+    prompt = ChatPromptTemplate.from_template(template)
+
+    def format_docs(docs):
+        return "\n\n".join(doc.page_content for doc in docs)
+
+    doc_chain = (
+        {"context": retriever | format_docs,
+         "question": RunnablePassthrough()}
+        | prompt
+        | llm
+        | StrOutputParser()
+    )
+
+    answer = doc_chain.invoke(request.question)
+
+    return {
+        "question": request.question,
+        "answer": answer,
+        "session_id": request.session_id
+    }
+

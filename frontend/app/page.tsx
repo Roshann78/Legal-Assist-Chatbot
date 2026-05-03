@@ -25,6 +25,7 @@ export default function Home() {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [compareResults, setCompareResults] = useState<{ rag: string; base: string } | null>(null);
+  const [compareDomain, setCompareDomain] = useState<"legal" | "banking">("legal");
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -102,7 +103,7 @@ export default function Home() {
       const response = await fetch("http://127.0.0.1:8000/compare", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: input }),
+        body: JSON.stringify({ question: input, domain: compareDomain }),
       });
 
       const data = await response.json();
@@ -203,11 +204,42 @@ export default function Home() {
         {activeSection === "compare" ? (
           /* COMPARISON VIEW */
           <div className="space-y-6">
+            {/* Domain Toggle */}
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex gap-0">
+                <button
+                  onClick={() => setCompareDomain("legal")}
+                  className={`px-5 py-2 text-[14px] font-semibold border border-navy rounded-l-[4px] transition-colors ${
+                    compareDomain === "legal"
+                      ? "bg-navy text-white"
+                      : "bg-white text-navy"
+                  }`}
+                >
+                  ⚖️ Legal
+                </button>
+                <button
+                  onClick={() => setCompareDomain("banking")}
+                  className={`px-5 py-2 text-[14px] font-semibold border border-navy border-l-0 rounded-r-[4px] transition-colors ${
+                    compareDomain === "banking"
+                      ? "bg-navy text-white"
+                      : "bg-white text-navy"
+                  }`}
+                >
+                  🏦 Banking
+                </button>
+              </div>
+              <p className="text-[12px] text-gray-text text-center" style={{ fontFamily: 'Inter, sans-serif' }}>
+                {compareDomain === "legal"
+                  ? "Comparing against 29+ Supreme Court judgments and legal acts"
+                  : "Comparing against RBI guidelines and banking scheme documents"}
+              </p>
+            </div>
+
             <div className="flex gap-3">
               <input 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Enter a legal question to compare..."
+                placeholder={compareDomain === "legal" ? "Enter your legal question..." : "Enter your banking question..."}
                 className="flex-1 border border-gray-border rounded-[4px] px-4 py-3 text-[15px]"
               />
               <button 
@@ -221,7 +253,9 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="border border-gray-border rounded-[8px] overflow-hidden flex flex-col">
-                <div className="bg-navy text-white p-3 font-serif text-center font-bold border-b border-gray-border">LegalAssist (RAG)</div>
+                <div className="bg-navy text-white p-3 font-serif text-center font-bold border-b border-gray-border">
+                  {compareDomain === "legal" ? "LegalAssist (RAG)" : "BankingAssist (RAG)"}
+                </div>
                 <div className="p-6 min-h-[300px] max-h-[500px] overflow-y-auto">
                   {compareResults?.rag ? (
                     <div className="markdown-body">

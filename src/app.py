@@ -27,6 +27,73 @@ print("Loading RAG chain...")
 chain = load_rag_chain()
 print("RAG chain loaded and ready!")
 
+print("Loading banking RAG chain...")
+from langchain_chroma import Chroma as ChromaBank
+from langchain_huggingface import HuggingFaceEmbeddings as HFEmbeddings
+from langchain_core.prompts import ChatPromptTemplate as BankingPromptTemplate
+from langchain_core.runnables import RunnablePassthrough as BankingPassthrough
+from langchain_core.output_parsers import StrOutputParser as BankingOutputParser
+
+banking_embeddings = HFEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
+)
+
+banking_vectorstore = ChromaBank(
+    persist_directory="chroma_db_banking",
+    embedding_function=banking_embeddings
+)
+
+banking_retriever = banking_vectorstore.as_retriever(
+    search_type="similarity",
+    search_kwargs={"k": 5}
+)
+
+banking_llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    temperature=0,
+    groq_api_key=os.getenv("GROQ_API_KEY")
+)
+
+banking_template = """
+You are an expert banking and financial assistant specializing in Indian banking, RBI guidelines, government schemes and rural finance.
+
+Use the following context from actual RBI documents and banking guidelines to answer the question accurately.
+
+FORMATTING RULES:
+- Never write a single long paragraph
+- Use numbered lists for steps or procedures
+- Use bullet points for features or benefits
+- Bold important scheme names, section numbers, or key terms
+- Start with a direct one line answer
+- Then provide detailed explanation
+- Focus on practical help for common people
+
+If the answer is not in the context say:
+"I don't have enough information in my banking documents to answer this accurately."
+
+Context:
+{context}
+
+Question: {question}
+
+Answer:
+"""
+
+banking_prompt = BankingPromptTemplate.from_template(banking_template)
+
+def banking_format_docs(docs):
+    return "\n\n".join(doc.page_content for doc in docs)
+
+banking_chain = (
+    {"context": banking_retriever | banking_format_docs,
+     "question": BankingPassthrough()}
+    | banking_prompt
+    | banking_llm
+    | BankingOutputParser()
+)
+
+print("Banking RAG chain loaded and ready!")
+
 document_sessions = {}
 
 base_llm = ChatGroq(
@@ -42,10 +109,15 @@ class AnswerResponse(BaseModel):
     question: str
     answer: str
 
+class CompareRequest(BaseModel):
+    question: str
+    domain: str = "legal"
+
 class CompareResponse(BaseModel):
     question: str
     rag_answer: str
     base_answer: str
+    domain: str
 
 @app.get("/")
 def root():
@@ -64,30 +136,35 @@ def ask_question(request: QuestionRequest):
     )
 
 @app.post("/compare", response_model=CompareResponse)
-def compare_answers(request: QuestionRequest):
+def compare_answers(request: CompareRequest):
     question = request.question
-    
-    executor = ThreadPoolExecutor(max_workers=2)
-    loop = asyncio.new_event_loop()
-    
+    domain = request.domain
+
     def get_rag_answer():
-        return chain.invoke(question)
-    
+        if domain == "banking":
+            return banking_chain.invoke(question)
+        else:
+            return chain.invoke(question)
+
     def get_base_answer():
-        response = base_llm.invoke("Please answer this question with clear formatting, use numbered points and paragraphs, not a single block of text: " + question)
+        if domain == "banking":
+            base_prompt = f"""You are a banking assistant. Answer this question from general knowledge only, no specific documents. Use clear formatting with numbered points and paragraphs: {question}"""
+        else:
+            base_prompt = f"""You are a legal assistant. Answer this question from general knowledge only, no specific documents. Use clear formatting with numbered points and paragraphs: {question}"""
+        response = base_llm.invoke(base_prompt)
         return response.content
-    
+
     with ThreadPoolExecutor(max_workers=2) as executor:
         rag_future = executor.submit(get_rag_answer)
         base_future = executor.submit(get_base_answer)
         rag_answer = rag_future.result()
         base_answer = base_future.result()
-    
-    
+
     return CompareResponse(
         question=question,
         rag_answer=rag_answer,
-        base_answer=base_answer
+        base_answer=base_answer,
+        domain=domain
     )
 
 class DocumentQuestionRequest(BaseModel):
@@ -206,3 +283,10 @@ Answer:
         "session_id": request.session_id
     }
 
+@app.post("/ask-banking", response_model=AnswerResponse)
+def ask_banking(request: QuestionRequest):
+    answer = banking_chain.invoke(request.question)
+    return AnswerResponse(
+        question=request.question,
+        answer=answer
+    )

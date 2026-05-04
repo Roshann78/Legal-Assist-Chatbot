@@ -1,4 +1,12 @@
 import os
+import sys
+import platform
+
+# Workaround: platform.machine() hangs on Windows due to WMI query in Python 3.12
+# sys.platform doesn't use WMI, so it's safe to check
+if sys.platform == 'win32':
+    platform.machine = lambda: 'AMD64'
+
 import asyncio
 import tempfile
 from concurrent.futures import ThreadPoolExecutor

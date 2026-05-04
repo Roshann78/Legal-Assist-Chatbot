@@ -1,4 +1,12 @@
 import os
+import sys
+import platform
+
+# Workaround: platform.machine() hangs on Windows due to WMI query in Python 3.12
+# sys.platform doesn't use WMI, so it's safe to check
+if sys.platform == 'win32':
+    platform.machine = lambda: 'AMD64'
+
 from dotenv import load_dotenv
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma

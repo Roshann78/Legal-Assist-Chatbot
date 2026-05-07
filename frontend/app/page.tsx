@@ -7,6 +7,8 @@ import FeaturesSection from "@/components/FeaturesSection";
 import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
 import ReactMarkdown from "react-markdown";
+import VoiceButton from "../components/VoiceButton";
+import useVoice from "../hooks/useVoice";
 
 type Section = "legal" | "banking" | "document" | "compare" | null;
 
@@ -26,6 +28,22 @@ export default function Home() {
   const [isUploading, setIsUploading] = useState(false);
   const [compareResults, setCompareResults] = useState<{ rag: string; base: string } | null>(null);
   const [compareDomain, setCompareDomain] = useState<"legal" | "banking">("legal");
+  const [speakingMessageIndex, setSpeakingMessageIndex] = useState<number | null>(null);
+  const [speakingPanel, setSpeakingPanel] = useState<'rag' | 'base' | null>(null);
+  const [voiceLanguage, setVoiceLanguage] = useState('en-IN');
+
+  const languages = [
+    { code: 'en-IN', label: 'English' },
+    { code: 'hi-IN', label: 'Hindi' },
+    { code: 'bn-IN', label: 'Bengali' },
+    { code: 'ta-IN', label: 'Tamil' },
+    { code: 'te-IN', label: 'Telugu' },
+    { code: 'mr-IN', label: 'Marathi' },
+    { code: 'gu-IN', label: 'Gujarati' },
+    { code: 'kn-IN', label: 'Kannada' },
+  ];
+
+  const { isListening, isSpeaking, speak, stopSpeaking } = useVoice(voiceLanguage);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -80,12 +98,14 @@ export default function Home() {
 
       const data = await response.json();
       
+      const answer = data.answer || "Sorry, I couldn't process that.";
       const aiMessage: Message = {
         role: "ai",
-        content: data.answer || "Sorry, I couldn't process that.",
+        content: answer,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages((prev) => [...prev, aiMessage]);
+      speak(answer);
     } catch (error) {
       console.error("Error:", error);
     } finally {
@@ -235,12 +255,73 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex gap-3">
+            {/* Voice language selector */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+              <label style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'var(--gray-text, #6B7280)' }}>
+                Voice Language:
+              </label>
+              <select
+                value={voiceLanguage}
+                onChange={(e) => setVoiceLanguage(e.target.value)}
+                style={{
+                  border: '1px solid var(--gray-border, #D1D5DB)',
+                  padding: '4px 8px',
+                  borderRadius: 4,
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: 13,
+                  color: 'var(--charcoal, #1F2937)',
+                  background: '#fff',
+                  cursor: 'pointer',
+                  outline: 'none',
+                }}
+              >
+                {languages.map((lang) => (
+                  <option key={lang.code} value={lang.code}>{lang.label}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Voice listening indicator */}
+            {isListening && (
+              <div
+                style={{
+                  background: 'var(--gray-light, #F3F4F6)',
+                  borderRadius: 4,
+                  padding: '8px 16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  marginBottom: 4,
+                }}
+              >
+                <span
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: '50%',
+                    background: 'var(--navy, #0A2342)',
+                    display: 'inline-block',
+                    animation: 'listening-dot 1s ease-in-out infinite',
+                  }}
+                />
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, color: 'var(--navy, #0A2342)' }}>
+                  Listening...
+                </span>
+              </div>
+            )}
+
+            <div className="flex gap-3" style={{ alignItems: 'center' }}>
               <input 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder={compareDomain === "legal" ? "Enter your legal question..." : "Enter your banking question..."}
                 className="flex-1 border border-gray-border rounded-[4px] px-4 py-3 text-[15px]"
+              />
+              <VoiceButton
+                onTranscript={(text) => setInput(text)}
+                disabled={isLoading}
+                size="md"
+                language={voiceLanguage}
               />
               <button 
                 onClick={handleCompare}
@@ -253,8 +334,51 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="border border-gray-border rounded-[8px] overflow-hidden flex flex-col">
-                <div className="bg-navy text-white p-3 font-serif text-center font-bold border-b border-gray-border">
-                  {compareDomain === "legal" ? "LegalAssist (RAG)" : "BankingAssist (RAG)"}
+                <div className="bg-navy text-white p-3 font-serif font-bold border-b border-gray-border" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                  <span>{compareDomain === "legal" ? "LegalAssist (RAG)" : "BankingAssist (RAG)"}</span>
+                  {compareResults?.rag && (
+                    <button
+                      type="button"
+                      title={isSpeaking && speakingPanel === 'rag' ? 'Stop speaking' : 'Listen to RAG answer'}
+                      aria-label={isSpeaking && speakingPanel === 'rag' ? 'Stop speaking' : 'Listen to RAG answer'}
+                      onClick={() => {
+                        if (isSpeaking && speakingPanel === 'rag') {
+                          stopSpeaking();
+                          setSpeakingPanel(null);
+                        } else {
+                          stopSpeaking();
+                          setSpeakingPanel('rag');
+                          speak(compareResults.rag);
+                        }
+                      }}
+                      style={{
+                        position: 'absolute',
+                        right: 10,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: 28,
+                        height: 28,
+                        borderRadius: '50%',
+                        border: '1px solid rgba(255,255,255,0.4)',
+                        background: 'transparent',
+                        cursor: 'pointer',
+                        padding: 0,
+                      }}
+                    >
+                      {isSpeaking && speakingPanel === 'rag' ? (
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="white">
+                          <rect x="1" y="1" width="10" height="10" rx="1" />
+                        </svg>
+                      ) : (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                        </svg>
+                      )}
+                    </button>
+                  )}
                 </div>
                 <div className="p-6 min-h-[300px] max-h-[500px] overflow-y-auto">
                   {compareResults?.rag ? (
@@ -267,7 +391,52 @@ export default function Home() {
                 </div>
               </div>
               <div className="border border-gray-border rounded-[8px] overflow-hidden flex flex-col">
-                <div className="bg-charcoal text-white p-3 font-serif text-center font-bold border-b border-gray-border">Base Llama (No RAG)</div>
+                <div className="bg-charcoal text-white p-3 font-serif font-bold border-b border-gray-border" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                  <span>Base Llama (No RAG)</span>
+                  {compareResults?.base && (
+                    <button
+                      type="button"
+                      title={isSpeaking && speakingPanel === 'base' ? 'Stop speaking' : 'Listen to base answer'}
+                      aria-label={isSpeaking && speakingPanel === 'base' ? 'Stop speaking' : 'Listen to base answer'}
+                      onClick={() => {
+                        if (isSpeaking && speakingPanel === 'base') {
+                          stopSpeaking();
+                          setSpeakingPanel(null);
+                        } else {
+                          stopSpeaking();
+                          setSpeakingPanel('base');
+                          speak(compareResults.base);
+                        }
+                      }}
+                      style={{
+                        position: 'absolute',
+                        right: 10,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: 28,
+                        height: 28,
+                        borderRadius: '50%',
+                        border: '1px solid rgba(255,255,255,0.4)',
+                        background: 'transparent',
+                        cursor: 'pointer',
+                        padding: 0,
+                      }}
+                    >
+                      {isSpeaking && speakingPanel === 'base' ? (
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="white">
+                          <rect x="1" y="1" width="10" height="10" rx="1" />
+                        </svg>
+                      ) : (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                        </svg>
+                      )}
+                    </button>
+                  )}
+                </div>
                 <div className="p-6 min-h-[300px] max-h-[500px] overflow-y-auto">
                   {compareResults?.base ? (
                     <div className="markdown-body">
@@ -321,14 +490,121 @@ export default function Home() {
                         </div>
                       )}
                     </div>
-                    <span className="text-[11px] text-gray-text mt-1">{m.timestamp}</span>
+                    <div className="flex items-center gap-1 mt-1">
+                      <span className="text-[11px] text-gray-text">{m.timestamp}</span>
+                      {m.role === "ai" && (
+                        <button
+                          type="button"
+                          title={isSpeaking && speakingMessageIndex === i ? "Stop speaking" : "Replay message"}
+                          aria-label={isSpeaking && speakingMessageIndex === i ? "Stop speaking" : "Replay message"}
+                          onClick={() => {
+                            if (isSpeaking && speakingMessageIndex === i) {
+                              stopSpeaking();
+                              setSpeakingMessageIndex(null);
+                            } else {
+                              speak(m.content);
+                              setSpeakingMessageIndex(i);
+                            }
+                          }}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: 28,
+                            height: 28,
+                            borderRadius: '50%',
+                            border: '1px solid var(--gray-border, #D1D5DB)',
+                            background: 'transparent',
+                            cursor: 'pointer',
+                            padding: 0,
+                            marginLeft: 4,
+                            transition: 'background 0.15s',
+                          }}
+                        >
+                          {isSpeaking && speakingMessageIndex === i ? (
+                            /* Stop icon */
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="var(--gray-text, #6B7280)">
+                              <rect x="1" y="1" width="10" height="10" rx="1" />
+                            </svg>
+                          ) : (
+                            /* Speaker icon */
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray-text, #6B7280)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                              <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                              <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                            </svg>
+                          )}
+                        </button>
+                      )}
+                    </div>
                   </div>
                 ))}
                 <div ref={messagesEndRef} />
               </div>
             </div>
 
-            <div className="flex gap-3 mt-4">
+            {/* Voice language selector */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+              <label style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'var(--gray-text, #6B7280)' }}>
+                Voice Language:
+              </label>
+              <select
+                value={voiceLanguage}
+                onChange={(e) => setVoiceLanguage(e.target.value)}
+                style={{
+                  border: '1px solid var(--gray-border, #D1D5DB)',
+                  padding: '4px 8px',
+                  borderRadius: 4,
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: 13,
+                  color: 'var(--charcoal, #1F2937)',
+                  background: '#fff',
+                  cursor: 'pointer',
+                  outline: 'none',
+                }}
+              >
+                {languages.map((lang) => (
+                  <option key={lang.code} value={lang.code}>{lang.label}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Voice listening indicator */}
+            {isListening && (
+              <div
+                style={{
+                  background: 'var(--gray-light, #F3F4F6)',
+                  borderRadius: 4,
+                  padding: '8px 16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  marginBottom: 4,
+                }}
+              >
+                <span
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: '50%',
+                    background: 'var(--navy, #0A2342)',
+                    display: 'inline-block',
+                    animation: 'listening-dot 1s ease-in-out infinite',
+                  }}
+                />
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, color: 'var(--navy, #0A2342)' }}>
+                  Listening...
+                </span>
+                <style>{`
+                  @keyframes listening-dot {
+                    0%, 100% { opacity: 1; transform: scale(1); }
+                    50% { opacity: 0.3; transform: scale(0.7); }
+                  }
+                `}</style>
+              </div>
+            )}
+
+            <div className="flex gap-3 mt-4" style={{ alignItems: 'center' }}>
               <input 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -336,6 +612,12 @@ export default function Home() {
                 placeholder="Type your message here..."
                 className="flex-1 border border-gray-border rounded-[4px] px-4 py-3 text-[15px]"
                 disabled={isLoading || (activeSection === "document" && (!uploadedFile || !sessionId || isUploading))}
+              />
+              <VoiceButton
+                onTranscript={(text) => setInput(text)}
+                disabled={isLoading}
+                size="md"
+                language={voiceLanguage}
               />
               <button 
                 onClick={handleSendMessage}

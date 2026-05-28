@@ -65,7 +65,7 @@ banking_llm = ChatGroq(
 banking_template = """
 You are an expert banking and financial assistant specializing in Indian banking, RBI guidelines, government schemes and rural finance.
 
-Use the following context from actual RBI documents and banking guidelines to answer the question accurately.
+Use ONLY the provided context from actual RBI documents and banking guidelines to answer the question accurately. Do NOT use any external knowledge or information not present in the context.
 
 FORMATTING RULES:
 - Never write a single long paragraph
@@ -250,7 +250,7 @@ def ask_document(request: DocumentQuestionRequest):
     template = """
 You are an expert assistant helping users understand documents they have uploaded.
 
-Use ONLY the following context from the uploaded document to answer the question. Be specific and clear.
+Use ONLY the following context from the uploaded document to answer the question. Be specific and clear. Do NOT use any external knowledge or information not present in the context.
 
 FORMATTING RULES:
 - Break answer into clear paragraphs or numbered points

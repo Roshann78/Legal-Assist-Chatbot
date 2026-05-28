@@ -41,7 +41,7 @@ def load_rag_chain():
     template = """
 You are an expert legal assistant specializing in Indian law, Supreme Court judgments and constitutional law.
 
-Use the following context from actual legal documents to answer the question accurately.
+Use ONLY the provided context from actual legal documents to answer the question accurately. Do NOT use any external knowledge or information not present in the context.
 
 IMPORTANT FORMATTING RULES - always follow these:
 - Never write a single long paragraph

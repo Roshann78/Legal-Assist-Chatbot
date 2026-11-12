@@ -34,6 +34,21 @@ class Settings(BaseSettings):
     llm_temperature: float = Field(default=0.1, ge=0.0, le=2.0)
     llm_max_tokens: int = Field(default=2048, ge=1, le=131072)
     llm_timeout_seconds: float = Field(default=30.0, gt=0.0)
+    llm_max_retries: int = Field(
+        default=3, ge=0, le=10, description="Max retries for transient errors"
+    )
+    llm_retry_min_wait: float = Field(
+        default=0.5, ge=0.0, description="Min backoff wait in seconds"
+    )
+    llm_retry_max_wait: float = Field(
+        default=8.0, ge=0.0, description="Max backoff wait in seconds"
+    )
+
+    # ── Sessions ─────────────────────────────────────────────────────────
+    session_ttl_seconds: int = Field(default=3600, ge=60, description="Session TTL in seconds")
+    session_max_count: int = Field(
+        default=1000, ge=1, description="Max concurrent sessions before eviction"
+    )
 
     # ── Embedding (name only; model loaded in later phases) ──────────────
     embedding_model: str = Field(
@@ -87,6 +102,16 @@ class Settings(BaseSettings):
         if isinstance(v, str):
             return [origin.strip() for origin in v.split(",") if origin.strip()]
         return v
+
+    @model_validator(mode="after")
+    def validate_retry_wait_bounds(self) -> Settings:
+        if self.llm_retry_min_wait > self.llm_retry_max_wait:
+            msg = (
+                f"llm_retry_min_wait ({self.llm_retry_min_wait}) cannot exceed "
+                f"llm_retry_max_wait ({self.llm_retry_max_wait})"
+            )
+            raise ValueError(msg)
+        return self
 
     @model_validator(mode="after")
     def validate_api_key_present(self) -> Settings:

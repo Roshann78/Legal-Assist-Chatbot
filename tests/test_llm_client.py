@@ -10,8 +10,9 @@ from collections.abc import AsyncIterator
 import httpx
 import pytest
 
-from legal_rag.config.groq_client import GroqClient
-from legal_rag.config.llm_client import (
+from legal_rag.config.settings import Settings
+from legal_rag.llm import (
+    GroqClient,
     LLMAuthError,
     LLMClient,
     LLMProviderError,
@@ -19,7 +20,6 @@ from legal_rag.config.llm_client import (
     LLMResponse,
     LLMTimeoutError,
 )
-from legal_rag.config.settings import Settings
 
 # ── Fake LLM Client ─────────────────────────────────────────────────────────
 

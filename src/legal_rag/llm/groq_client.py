@@ -7,7 +7,8 @@ from collections.abc import AsyncIterator
 
 import httpx
 
-from legal_rag.config.llm_client import (
+from legal_rag.config.settings import Settings
+from legal_rag.llm.llm_client import (
     LLMAuthError,
     LLMClient,
     LLMProviderError,
@@ -15,7 +16,6 @@ from legal_rag.config.llm_client import (
     LLMResponse,
     LLMTimeoutError,
 )
-from legal_rag.config.settings import Settings
 
 GROQ_API_BASE = "https://api.groq.com/openai/v1"
 
@@ -64,14 +64,24 @@ class GroqClient(LLMClient):
         }
 
     @staticmethod
-    def _handle_error_status(status_code: int, body: str) -> None:
+    def _handle_error_status(
+        status_code: int, body: str, headers: httpx.Headers | None = None
+    ) -> None:
         """Translate HTTP error codes to typed exceptions."""
-        if status_code == 401:
-            raise LLMAuthError(f"Authentication failed: {body[:200]}")
+        if status_code in (401, 403):
+            raise LLMAuthError(f"Authentication failed ({status_code}): {body[:200]}")
         if status_code == 429:
-            raise LLMRateLimitError(f"Rate limit exceeded: {body[:200]}")
+            retry_after = None
+            if headers and "retry-after" in headers:
+                try:
+                    retry_after = float(headers["retry-after"])
+                except (ValueError, TypeError):
+                    pass
+            raise LLMRateLimitError(f"Rate limit exceeded: {body[:200]}", retry_after=retry_after)
         if status_code >= 400:
-            raise LLMProviderError(f"Provider error ({status_code}): {body[:200]}")
+            raise LLMProviderError(
+                f"Provider error ({status_code}): {body[:200]}", status_code=status_code
+            )
 
     def generate(
         self,
@@ -94,7 +104,7 @@ class GroqClient(LLMClient):
         except httpx.HTTPError as exc:
             raise LLMProviderError(f"HTTP error: {exc}") from exc
 
-        self._handle_error_status(resp.status_code, resp.text)
+        self._handle_error_status(resp.status_code, resp.text, resp.headers)
 
         data = resp.json()
         choice = data["choices"][0]
@@ -126,7 +136,7 @@ class GroqClient(LLMClient):
                 ) as resp:
                     if resp.status_code != 200:
                         body = await resp.aread()
-                        self._handle_error_status(resp.status_code, body.decode())
+                        self._handle_error_status(resp.status_code, body.decode(), resp.headers)
 
                     async for line in resp.aiter_lines():
                         if not line.startswith("data: "):

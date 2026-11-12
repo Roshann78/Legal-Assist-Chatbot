@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+import asyncio
 import logging
 import uuid
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
-from typing import AsyncIterator
 
 import httpx
 from fastapi import FastAPI, Request
@@ -20,9 +21,13 @@ from legal_rag.api.middleware import (
     is_valid_request_id,
 )
 from legal_rag.api.schemas import ErrorResponse, HealthResponse, ReadyResponse
-from legal_rag.config.groq_client import GroqClient
-from legal_rag.config.llm_client import LLMAuthError, LLMClient
+from legal_rag.api.sessions import (
+    InMemorySessionStore,
+    SessionStore,
+    run_periodic_session_cleanup,
+)
 from legal_rag.config.settings import Settings, get_settings
+from legal_rag.llm import GroqClient, LLMAuthError, LLMClient, ResilientLLMClient
 from legal_rag.observability.logging import setup_logging
 from legal_rag.retrieval.base import (
     Embedder,
@@ -57,6 +62,7 @@ def create_app(
     llm_client: LLMClient | None = None,
     embedder: Embedder | None = None,
     vector_store: VectorStore | None = None,
+    session_store: SessionStore | None = None,
 ) -> FastAPI:
     """Application factory for Legal Assist RAG API.
 
@@ -72,28 +78,52 @@ def create_app(
         http_client = httpx.AsyncClient(timeout=app_settings.llm_timeout_seconds)
         app.state.http_client = http_client
 
-        # 2. Initialize LLM client
+        # 2. Initialize LLM client and wrap in resilience layer
+        raw_llm: LLMClient
         if llm_client is not None:
-            app.state.llm_client = llm_client
+            raw_llm = llm_client
         else:
             try:
-                app.state.llm_client = GroqClient(app_settings, async_client=http_client)
+                raw_llm = GroqClient(app_settings, async_client=http_client)
             except LLMAuthError as exc:
                 logger.warning("LLM client not ready at startup: %s", exc)
-                app.state.llm_client = UnreadyLLMClient(reason=str(exc))
+                raw_llm = UnreadyLLMClient(reason=str(exc))
+
+        # Always wrap in ResilientLLMClient for retry & backoff protection
+        if isinstance(raw_llm, ResilientLLMClient):
+            app.state.llm_client = raw_llm
+        else:
+            app.state.llm_client = ResilientLLMClient(raw_llm, settings=app_settings)
 
         # 3. Initialize embedder & vector store (placeholders in Phase 0)
         app.state.embedder = embedder or PlaceholderEmbedder(ready=True)
         app.state.vector_store = vector_store or PlaceholderVectorStore(ready=True)
+
+        # 4. Initialize session store and background cleanup
+        active_session_store = session_store or InMemorySessionStore(
+            ttl_seconds=app_settings.session_ttl_seconds,
+            max_sessions=app_settings.session_max_count,
+        )
+        app.state.session_store = active_session_store
+        cleanup_task = asyncio.create_task(
+            run_periodic_session_cleanup(active_session_store, interval_seconds=60.0)
+        )
+
         app.state.settings = app_settings
 
         logger.info("Application components initialized (lifespan startup complete)")
 
         yield
 
-        # 4. Clean shutdown
+        # 5. Clean shutdown
+        cleanup_task.cancel()
+        try:
+            await cleanup_task
+        except asyncio.CancelledError:
+            pass
+
         await http_client.aclose()
-        logger.info("Application HTTP client closed (lifespan shutdown complete)")
+        logger.info("Application components cleanly shut down (lifespan shutdown complete)")
 
     app = FastAPI(
         title="Legal Assist RAG API",

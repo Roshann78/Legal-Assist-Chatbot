@@ -96,6 +96,18 @@ class TestSettingsValidation:
         with pytest.raises(ValueError):
             Settings(llm_api_key="k", max_question_length=5)
 
+    def test_retry_min_wait_exceeds_max_wait_raises(self):
+        with pytest.raises(ValueError, match="cannot exceed"):
+            Settings(llm_api_key="k", llm_retry_min_wait=10.0, llm_retry_max_wait=5.0)
+
+    def test_default_resilience_and_sessions(self):
+        s = Settings(llm_api_key="k")
+        assert s.llm_max_retries == 3
+        assert s.llm_retry_min_wait == 0.5
+        assert s.llm_retry_max_wait == 8.0
+        assert s.session_ttl_seconds == 3600
+        assert s.session_max_count == 1000
+
     def test_empty_api_key_warns(self):
         with warnings.catch_warnings(record=True) as w:
             warnings.simplefilter("always")

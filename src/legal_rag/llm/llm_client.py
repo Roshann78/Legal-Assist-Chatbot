@@ -24,6 +24,10 @@ class LLMAuthError(LLMError):
 class LLMRateLimitError(LLMError):
     """Provider rate limit exceeded."""
 
+    def __init__(self, message: str, retry_after: float | None = None) -> None:
+        super().__init__(message)
+        self.retry_after = retry_after
+
 
 class LLMTimeoutError(LLMError):
     """Request timed out."""
@@ -31,6 +35,10 @@ class LLMTimeoutError(LLMError):
 
 class LLMProviderError(LLMError):
     """Any other provider-side error (5xx, unexpected response, etc.)."""
+
+    def __init__(self, message: str, status_code: int | None = None) -> None:
+        super().__init__(message)
+        self.status_code = status_code
 
 
 # ── Response type ────────────────────────────────────────────────────────────

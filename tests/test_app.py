@@ -11,8 +11,9 @@ from fastapi import APIRouter
 from fastapi.testclient import TestClient
 
 from legal_rag.api.main import create_app
-from legal_rag.config.llm_client import LLMClient, LLMResponse
+from legal_rag.api.sessions import InMemorySessionStore
 from legal_rag.config.settings import Settings
+from legal_rag.llm import LLMClient, LLMResponse, ResilientLLMClient
 from legal_rag.observability.logging import setup_logging
 from legal_rag.retrieval.base import PlaceholderEmbedder, PlaceholderVectorStore
 
@@ -144,6 +145,20 @@ def test_lifespan_clean_shutdown():
 
     # Once client context exits, lifespan shutdown ran
     assert http_client.is_closed
+
+
+def test_lifespan_initializes_resilient_llm_and_session_store():
+    """Verify app lifespan wraps LLM in ResilientLLMClient and initializes SessionStore."""
+    mock_llm = MockLLM(ready=True)
+    app = create_app(settings=_test_settings(), llm_client=mock_llm)
+
+    with TestClient(app):
+        # LLM client is wrapped in resilience layer
+        assert isinstance(app.state.llm_client, ResilientLLMClient)
+        assert app.state.llm_client.inner is mock_llm
+        # Session store is initialized
+        assert isinstance(app.state.session_store, InMemorySessionStore)
+        assert app.state.session_store.max_sessions == app.state.settings.session_max_count
 
 
 # ── Request IDs & Middleware ─────────────────────────────────────────────────

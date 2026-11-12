@@ -23,19 +23,29 @@ GROQ_API_BASE = "https://api.groq.com/openai/v1"
 class GroqClient(LLMClient):
     """Groq LLM client using direct httpx calls to the OpenAI-compatible API."""
 
-    def __init__(self, settings: Settings) -> None:
+    def __init__(
+        self,
+        settings: Settings,
+        async_client: httpx.AsyncClient | None = None,
+    ) -> None:
         api_key = settings.llm_api_key.get_secret_value()
         if not api_key:
             raise LLMAuthError("LLM_API_KEY is empty. Cannot create Groq client.")
 
+        self._api_key = api_key
         self._model = settings.llm_model
         self._temperature = settings.llm_temperature
         self._max_tokens = settings.llm_max_tokens
         self._timeout = settings.llm_timeout_seconds
+        self._async_client = async_client
         self._headers = {
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
         }
+
+    def is_ready(self) -> bool:
+        """Check local configuration without network calls."""
+        return bool(self._api_key and self._model)
 
     def _build_payload(
         self,

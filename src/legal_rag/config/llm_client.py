@@ -58,6 +58,14 @@ class LLMClient(ABC):
     """
 
     @abstractmethod
+    def is_ready(self) -> bool:
+        """Check local readiness without making network calls.
+
+        Returns:
+            True if client is initialized with valid credentials, False otherwise.
+        """
+
+    @abstractmethod
     def generate(
         self,
         messages: list[dict[str, str]],

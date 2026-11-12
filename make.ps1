@@ -21,7 +21,7 @@ switch ($Target) {
         uv run ruff format .
     }
     "run" {
-        uv run uvicorn legal_rag.api.main:app --reload
+        uv run uvicorn legal_rag.api.main:create_app --factory --reload --host 127.0.0.1 --port 8000
     }
     "check" {
         uv run ruff check .

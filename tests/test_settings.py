@@ -5,6 +5,7 @@ from __future__ import annotations
 import warnings
 
 import pytest
+
 from legal_rag.config.settings import Settings
 
 
@@ -105,32 +106,34 @@ class TestSettingsValidation:
 class TestSecretMasking:
     """Secrets never leak through repr, str, or model_dump."""
 
+    TEST_SECRET = "super-secret-" + "groq-key-12345"  # pragma: allowlist secret
+
     def _make_settings(self):
-        return Settings(llm_api_key="super-secret-groq-key-12345")  # pragma: allowlist secret
+        return Settings(llm_api_key=self.TEST_SECRET)
 
     def test_repr_masks_key(self):
         s = self._make_settings()
         r = repr(s)
-        assert "super-secret-groq-key-12345" not in r  # pragma: allowlist secret
+        assert self.TEST_SECRET not in r
         assert "**********" in r
 
     def test_str_masks_key(self):
         s = self._make_settings()
-        assert "super-secret-groq-key-12345" not in str(s)  # pragma: allowlist secret
+        assert self.TEST_SECRET not in str(s)
 
     def test_model_dump_masks_key(self):
         s = self._make_settings()
         d = s.model_dump()
         assert d["llm_api_key"] == "**********"
-        assert "super-secret-groq-key-12345" not in str(d)  # pragma: allowlist secret
+        assert self.TEST_SECRET not in str(d)
 
     def test_secret_not_in_dict_values(self):
         s = self._make_settings()
         d = s.model_dump()
         flat_values = str(d.values())
-        assert "super-secret-groq-key-12345" not in flat_values  # pragma: allowlist secret
+        assert self.TEST_SECRET not in flat_values
 
     def test_get_secret_value_works(self):
         s = self._make_settings()
         key_val = s.llm_api_key.get_secret_value()
-        assert key_val == "super-secret-groq-key-12345"  # pragma: allowlist secret
+        assert key_val == self.TEST_SECRET

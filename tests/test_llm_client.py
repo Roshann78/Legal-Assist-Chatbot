@@ -9,6 +9,7 @@ from collections.abc import AsyncIterator
 
 import httpx
 import pytest
+
 from legal_rag.config.groq_client import GroqClient
 from legal_rag.config.llm_client import (
     LLMAuthError,
@@ -26,9 +27,13 @@ from legal_rag.config.settings import Settings
 class FakeLLMClient(LLMClient):
     """Fake implementation proving the interface contract."""
 
-    def __init__(self, response_text: str = "fake answer"):
+    def __init__(self, response_text: str = "fake answer", ready: bool = True):
         self._response_text = response_text
+        self._ready = ready
         self.call_count = 0
+
+    def is_ready(self) -> bool:
+        return self._ready
 
     def generate(
         self,
@@ -63,6 +68,11 @@ class TestFakeLLMClient:
     def test_is_instance_of_interface(self):
         client = FakeLLMClient()
         assert isinstance(client, LLMClient)
+        assert client.is_ready() is True
+
+    def test_fake_not_ready(self):
+        client = FakeLLMClient(ready=False)
+        assert client.is_ready() is False
 
     def test_generate_returns_response(self):
         client = FakeLLMClient("hello world")
@@ -133,6 +143,7 @@ class TestGroqClientInit:
         s = _make_settings()
         client = GroqClient(s)
         assert isinstance(client, LLMClient)
+        assert client.is_ready() is True
 
 
 class TestGroqGenerate:

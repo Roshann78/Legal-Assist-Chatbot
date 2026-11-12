@@ -50,10 +50,11 @@ class Settings(BaseSettings):
     processed_dir: Path = Field(default=Path("data/processed"))
     eval_dir: Path = Field(default=Path("eval"))
 
-    # ── API ──────────────────────────────────────────────────────────────
+    # ── API & Logging ────────────────────────────────────────────────────
     api_host: str = Field(default="127.0.0.1")
     api_port: int = Field(default=8000, ge=1, le=65535)
     cors_origins: list[str] = Field(default=["http://localhost:3000"])
+    log_level: str = Field(default="INFO", description="Logging level")
 
     # ── Limits ───────────────────────────────────────────────────────────
     max_question_length: int = Field(default=1000, ge=10, le=10000)
@@ -69,6 +70,16 @@ class Settings(BaseSettings):
             msg = f"Unsupported LLM provider '{v}'. Allowed: {allowed}"
             raise ValueError(msg)
         return v.lower()
+
+    @field_validator("log_level")
+    @classmethod
+    def validate_log_level(cls, v: str) -> str:
+        allowed = {"DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"}
+        val = v.upper()
+        if val not in allowed:
+            msg = f"Invalid log_level '{v}'. Allowed: {allowed}"
+            raise ValueError(msg)
+        return val
 
     @field_validator("cors_origins", mode="before")
     @classmethod

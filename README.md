@@ -16,6 +16,7 @@ On **Windows** (PowerShell), use `.\make.ps1`:
 .\make.ps1 lint     # Run ruff linter
 .\make.ps1 format   # Format code with ruff
 .\make.ps1 check    # Run lint + test
+.\make.ps1 run      # Start FastAPI development server (uvicorn --factory)
 ```
 
 On Linux/macOS (or Windows with GNU `make` installed), use `make`:
@@ -24,9 +25,11 @@ make setup
 make test
 make lint
 make format
+make run
 ```
 You can also run commands directly via `uv`:
 ```bash
 uv run pytest
 uv run ruff check .
+uv run uvicorn legal_rag.api.main:create_app --factory --reload
 ```

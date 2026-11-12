@@ -1,3 +1,8 @@
+# Internal roadmap and planning docs (local only)
+docs/roadmap/
+*ROADMAP*
+*roadmap*
+
 # Environments and secrets
 .env
 .env.*
@@ -5,9 +10,15 @@
 !.env.example
 
 # Processed data and caches
-data/processed/
+data/processed/*
+!data/processed/.gitkeep
 data/cache/
 *.cache
+.uv/
+.uv-cache/
+
+# Lock files must be tracked
+!uv.lock
 
 # Vector databases & indexes
 chroma_db*/
@@ -74,4 +85,3 @@ yarn-error.log*
 *.swo
 .DS_Store
 Thumbs.db
-

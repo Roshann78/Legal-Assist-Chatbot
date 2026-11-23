@@ -17,6 +17,12 @@ data/cache/
 .uv/
 .uv-cache/
 
+# Bring-your-own-PDF corpus: keep folder markers and metadata, ignore local PDFs/manifests
+data/raw/**/*.pdf
+data/raw/*.pdf
+data/manifest.yaml
+data/draft.yaml
+
 # Lock files must be tracked
 !uv.lock
 
@@ -86,6 +92,9 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
+# Local exported chatbot page
+legalAssistChatbot.html
+
 # generated eval runs (keep .gitkeep)
 eval/runs/*
 !eval/runs/.gitkeep
@@ -94,3 +103,12 @@ eval/runs/*
 web/next-env.d.ts
 *.tsbuildinfo
 !web/lib/
+# Interview prep files
+INTERVIEW_GUIDE.md
+INTERVIEW_QA.md
+INTERVIEW_TECH_DEEP_DIVE.md
+INTERVIEW_SYSTEM_DESIGN.md
+INTERVIEW_WHITEBOARD.md
+INTERVIEW_PREP.html
+build_interview_html.js
+VIVA_PITCH.html

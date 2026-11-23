@@ -24,6 +24,16 @@ data/
 
 Configurable paths (`.env` / `Settings`): `DATA_DIR`, `MANIFEST_PATH`, `PROCESSED_DIR`, `INDEX_PATH`, `MAPPINGS_PATH`, `FEEDBACK_PATH`, `EMBEDDING_CACHE_PATH`, `QDRANT_PATH`.
 
+## Bring-your-own-PDFs: fresh clone workflow
+
+1. Clone the repo and copy `.env.example` to `.env`. Add `LLM_API_KEY` and keep `AUTO_SYNC_ON_STARTUP=true`.
+2. Drop text-based `.pdf` files into `data/raw/`, `data/raw/legal/`, or `data/raw/banking/`.
+3. Start the backend. The first startup creates `data/manifest.yaml` and builds the vector index automatically.
+
+`data/SOURCES.json` is a reference list of official Indian legal/banking PDFs used in testing. It does not make
+those PDFs part of the repository. Local PDFs, `data/manifest.yaml`, generated processed files, caches, and `.env`
+are not tracked in Git.
+
 ## 2. Adding documents: the drop-in workflow
 
 1. **Drop** a `.pdf` or `.txt` into `data/raw/legal/` or `data/raw/banking/` (or directly into `data/raw/`).

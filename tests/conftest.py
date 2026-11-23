@@ -27,6 +27,7 @@ def settings(tmp_path) -> Settings:
             llm_api_key="dummy-test-key",  # pragma: allowlist secret
             embedding_model="hashing-512",
             abstain_threshold=0.2,
+            auto_sync_on_startup=False,
             index_path=tmp_path / "index.json",
             processed_dir=tmp_path / "processed",
             embedding_cache_path=tmp_path / "cache" / "emb.sqlite",

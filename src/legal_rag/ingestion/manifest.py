@@ -19,6 +19,14 @@ def sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
+def ensure_manifest(path: Path) -> None:
+    """Create a valid empty manifest on a fresh clone, preserving an existing file."""
+    if path.exists():
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("documents: []\n", encoding="utf-8")
+
+
 def load_manifest(path: Path) -> list[DocumentRecord]:
     """Load records; raises ValueError listing all invalid records."""
     raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}

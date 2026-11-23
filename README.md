@@ -35,6 +35,17 @@ stateless (history is injected), and the same code path serves the API and the e
 
 ## Quickstart
 
+### Bring-your-own-PDF setup
+
+This repository does not ship a PDF corpus or generated manifest. To use your own documents:
+
+1. Clone the repo, copy `.env.example` to `.env`, add `LLM_API_KEY`, and keep `AUTO_SYNC_ON_STARTUP=true`.
+2. Drop text-based `.pdf` files into `data/raw/`, `data/raw/legal/`, or `data/raw/banking/`.
+3. Start the backend. `data/manifest.yaml` and the vector index are created and populated automatically.
+
+`data/SOURCES.json` is only a reference list of official Indian legal/banking PDFs used in testing; it is not a
+downloaded corpus. PDFs, `data/manifest.yaml`, processed files, caches, and `.env` remain local and git-ignored.
+
 ```bash
 uv sync                                   # or: pip install -e . pytest pytest-asyncio pytest-cov ruff
 cp .env.example .env                      # set LLM_API_KEY (Groq) and ADMIN_API_KEY

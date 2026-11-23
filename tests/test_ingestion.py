@@ -375,3 +375,31 @@ def test_startup_sync_makes_dropped_pdf_searchable(sync_env):
         assert client.get("/ready").status_code == 200
         stats = client.get("/v1/stats").json()
         assert stats["documents"] == 1 and stats["chunks"] > 0
+
+
+def test_fresh_clone_empty_then_added_pdf_auto_initializes(sync_env):
+    from fastapi.testclient import TestClient
+
+    from legal_rag.api.main import create_app
+    from legal_rag.eval.runner import ExtractiveFakeLLM
+
+    s, data = sync_env
+    s = s.model_copy(update={"auto_sync_on_startup": True})
+
+    assert not s.manifest_path.exists()
+    with TestClient(create_app(s, llm_client=ExtractiveFakeLLM())) as client:
+        assert client.get("/health").status_code == 200
+        assert client.get("/ready").status_code == 200
+        stats = client.get("/v1/stats").json()
+        assert stats["documents"] == 0 and stats["chunks"] == 0
+
+    assert s.manifest_path.exists()
+    assert load_manifest(s.manifest_path) == []
+
+    make_pdf(data / "raw" / "legal" / "added_act.pdf", ACT)
+    with TestClient(create_app(s, llm_client=ExtractiveFakeLLM())) as client:
+        assert client.get("/ready").status_code == 200
+        stats = client.get("/v1/stats").json()
+        assert stats["documents"] == 1 and stats["chunks"] > 0
+
+    assert [r.doc_id for r in load_manifest(s.manifest_path)] == ["added_act"]

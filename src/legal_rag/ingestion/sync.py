@@ -9,7 +9,12 @@ from legal_rag.config.settings import Settings
 from legal_rag.ingestion.cache import EmbeddingCache
 from legal_rag.ingestion.classify import classify_file, discover
 from legal_rag.ingestion.indexer import Indexer, IndexSummary
-from legal_rag.ingestion.manifest import load_manifest, sha256_file, validate_manifest
+from legal_rag.ingestion.manifest import (
+    ensure_manifest,
+    load_manifest,
+    sha256_file,
+    validate_manifest,
+)
 from legal_rag.ingestion.manifest_edit import append_entries, remove_entry, replace_file_hash
 from legal_rag.ingestion.schema import DocumentRecord
 from legal_rag.retrieval.base import Embedder, VectorStore
@@ -76,6 +81,8 @@ def run_sync(
     sm = SyncSummary()
     manifest = s.manifest_path
     raw_dir = s.data_dir / "raw"
+    if not dry_run:
+        ensure_manifest(manifest)
     records = load_manifest(manifest) if manifest.exists() else []
 
     # 1. New files: classify and append to the manifest (existing entries are never touched).

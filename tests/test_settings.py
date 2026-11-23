@@ -17,7 +17,7 @@ class TestSettingsDefaults:
         assert s.llm_provider == "groq"
 
     def test_default_model(self):
-        s = Settings(llm_api_key="test-key-1234")
+        s = Settings(llm_api_key="test-key-1234", _env_file=None)
         assert s.llm_model == "llama-3.3-70b-versatile"
 
     def test_default_temperature(self):
@@ -30,7 +30,7 @@ class TestSettingsDefaults:
         assert s.retrieval_score_threshold == 0.0
 
     def test_default_api(self):
-        s = Settings(llm_api_key="test-key-1234")
+        s = Settings(llm_api_key="test-key-1234", _env_file=None)
         assert s.api_host == "127.0.0.1"
         assert s.api_port == 8000
         assert s.cors_origins == ["http://localhost:3000"]

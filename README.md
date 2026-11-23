@@ -142,5 +142,4 @@ structural (delimiting, escaping, rules) and their effect on a real LLM is untes
 ## Docs
 
 `DESIGN.md` (decisions and what is unmeasured) · `EVAL.md` (method) · `docs/load_test.md` ·
-`docs/demo_script.md` · `docs/resume_kit.md` · `docs/roadmap/` · `docs/corpus_plan.md` ·
-`docs/metadata_schema.md`.
+`docs/demo_script.md` · `docs/corpus_plan.md` · `docs/metadata_schema.md`.
